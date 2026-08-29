@@ -1,0 +1,58 @@
+# 20_shambhala, which has more constraints than any other method in the registry.
+#
+#   combobatch run --config examples/configs/shambhala.yaml
+#
+# Needs Octave on the PATH plus a `matlab` wrapper, both of which the Docker image
+# provides. Without them the method reports an honest named skip rather than failing.
+#
+# Four things about Shambhala that are easy to get wrong:
+#
+# 1. **Input must be raw, not log-scale.** `readExpressionData.m` applies its own
+#    log2(x+1), and the output is exp(rm + rs*log(x+1)) - also raw, with values reaching
+#    ~100,000. The example dataset is raw (max ~40,000), so it is fed in as-is. There is
+#    no --log-input flag anywhere, and passing log-scale data produces plausible-looking
+#    nonsense rather than an error. A warning is emitted if the input looks log-scaled.
+#
+# 2. **Parallelism multiplies.** Octave processes = dispatcher workers x n_workers here.
+#    Leave n_workers at 1 unless this is the only job running.
+#
+# 3. **P and Q are calibration matrices** shipped with the package (P0_standard,
+#    Q0_standard). Unset, the vendored defaults are used - which is what you want unless
+#    you have generated your own.
+#
+# 4. **It is slow.** Minutes per sample, not seconds. Raise timeout_s before blaming it.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+imputations:
+  # Shambhala has its own NA handling (na_strategy below), but genes that are mostly
+  # missing are still better dropped before it starts.
+  - name: strict
+
+methods:
+  - name: 20_shambhala
+    params:
+      k: 5                    # nearest neighbours in the calibration step
+      n_workers: 1            # see note 2 - this multiplies with the dispatcher's workers
+      na_strategy: drop       # or `knn`, to fill instead of dropping
+      max_na_frac: 0.2
+      timeout_s: 10800        # three hours; the default 6000s is tight for 144 samples
+      random_seed: 42
+      # q_pseudocount guards the log of the Q statistics. Set it to 0 and genes with zero
+      # counts in Q are excluded instead, with a warning naming them.
+      q_pseudocount: 1.0e-06
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K
+
+random_seed: 42

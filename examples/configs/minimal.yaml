@@ -1,0 +1,33 @@
+# The smallest useful configuration: one imputation, one method, default metrics.
+#
+#   combobatch run --config examples/configs/minimal.yaml
+#
+# Paths are relative to the working directory, so run this from the repository root.
+# Everything not listed here takes its default; `combobatch run --help` names them all.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/
+
+# The only genuinely required choices. Nothing about these names is built into the tool -
+# point them at whatever your own annotation calls the batch and the biology.
+columns:
+  batch: RNA_BATCH                    # what harmonization should remove
+  bio: Diagnosis_cell_type_unified    # what it must preserve
+  cohort: COHORT_LABEL                # optional; metrics report per-cohort effects
+
+imputations:
+  - name: strict          # drop genes with any NA rather than impute; the honest baseline
+
+methods:
+  # Pure Python, so this file runs on a bare `pip install -e .` with no R and no Octave.
+  # 20 of the 34 methods need R and one needs Octave; `combobatch list-methods
+  # --available-only` shows what works here, and the Docker image has all of them.
+  - name: 15_fsqn_py
+
+metrics:
+  enabled: true           # groups default to A, B, E, J, K - the fast, always-available set
+
+random_seed: 42

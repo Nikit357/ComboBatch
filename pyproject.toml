@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "combobatch"
+version = "0.1.0"
+description = "Benchmark imputation x harmonization combinations for bulk transcriptomics, with batch-effect quality metrics."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Daniil Nikitin", email = "daniil.nikitin@bostongene.com" }]
+keywords = ["batch effect", "harmonization", "transcriptomics", "RNA-seq", "microarray"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+# Pinned to 3.11 exactly. pandas<2.0 (a hard reComBat requirement) ships a py3.11
+# wheel only and fails to build from source on 3.12; Shambhala requires >=3.11.
+requires-python = ">=3.11,<3.12"
+
+# Core dependencies are deliberately R-free and Octave-free so that `pip install -e .`
+# and the whole unit-test suite work on a laptop. Everything needing a system
+# dependency lives in an extra. See docs/METHODS.md for which methods need which.
+dependencies = [
+    "numpy>=1.24,<2.0",        # <2.0: rpy2 / scanorama / numba ABI
+    "pandas>=1.5,<2.0",        # <2.0: reComBat 0.1.4 hard requirement; py3.11 wheel only
+    "scikit-learn>=1.3,<1.6",
+    "scipy>=1.9",
+    "statsmodels>=0.14",
+    "umap-learn>=0.5",
+    "psutil>=5.9",
+    "pyyaml>=6.0",
+    "boto3>=1.28.17",
+    "botocore>=1.31.17",
+]
+
+[project.optional-dependencies]
+# rpy2 cannot be built without R on the PATH, so it must never be a core dependency.
+r = ["rpy2>=3.5.5,<3.7"]      # ABI-bound to R 4.5.x
+methods = [
+    "harmonypy>=0.0.9,<2.0",
+    "scanorama>=1.7",
+    "combat>=0.3.3",
+    "inmoose>=0.9.1",
+    "reComBat @ git+https://github.com/BorgwardtLab/reComBat",
+]
+shambhala = ["qnorm>=0.4.1"]  # pulls numba + llvmlite (~56 MB)
+panels = ["openpyxl>=3.1", "xlrd>=2.0.1"]
+dev = [
+    "pytest>=7.4",
+    "pytest-timeout>=2.1",
+    "moto[s3]>=4.2",
+    "black>=24.1",
+    # Shambhala's Python-side quantile normalization. Pure Python, no backend, and the
+    # regression test for the un-forwarded `skip_qn` needs it, so it stays unconditional
+    # rather than becoming a skip.
+    "combobatch[shambhala]",
+]
+all = ["combobatch[r,methods,shambhala,panels]"]
+
+[project.scripts]
+combobatch = "combobatch.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/Nikit357/ComboBatch"
+Repository = "https://github.com/Nikit357/ComboBatch"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["combobatch*"]
+
+# The donor Shambhala package shipped only its Python modules, so the Octave .m files
+# it needs at runtime were missing from any non-editable install. Ship them explicitly.
+[tool.setuptools.package-data]
+"combobatch.vendor.shambhala" = ["octave/*.m"]
+"combobatch.data" = ["calibration/*.csv.gz"]
+"combobatch.metrics" = ["data/*.csv"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "needs_r: requires a working R installation and rpy2",
+    "needs_octave: requires an Octave installation",
+    "slow: long-running; deselect with -m 'not slow'",
+]

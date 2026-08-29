@@ -1,0 +1,75 @@
+# The full imputation x method cross-product, for the dispatcher.
+#
+#   combobatch dispatch --config examples/configs/full_crossproduct.yaml --dry-run
+#   combobatch dispatch --config examples/configs/full_crossproduct.yaml \
+#       --n-workers 8 --skip-if-exists
+#
+# --dry-run prints every job and the output keys it would write, and runs nothing. Always
+# start there: this file is 4 imputations x 12 methods = 48 combinations, and with
+# post_removal enabled it would be 96 output matrices.
+#
+# To run every registered method instead of the twelve below, pass `--methods all`
+# (34 methods x 4 imputations = 136 jobs). The list here is a representative spread -
+# pure-Python, R-backed, reference-based and Octave-backed - that finishes in minutes on
+# the example dataset.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+  # Extra columns the metrics also report batch structure against. Each one produces its
+  # own r2_<column> / ilisi_<column> keys, so a metric never silently means "RNA_BATCH".
+  metric_batch_cols: [RNA_BATCH, PLATFORM_RNA, RNASEQ_SOURCE]
+  metric_bio_cols: [Diagnosis_cell_type_unified, Major_group]
+
+imputations:
+  - name: strict
+  # max_na_frac is set above 0.35 on purpose. This dataset's missingness is banded, not
+  # scattered: the per-gene NA fraction takes five values (0.0, 0.347, 0.625, 0.653, 1.0)
+  # because a gene is measured by a whole cohort or by none of it. The gate only matters
+  # where it crosses a band, and the default 0.20 falls below all of them - at defaults
+  # every imputer keeps just the zero-NA genes, leaving nothing to impute and making all
+  # four strategies produce an identical matrix. See examples/example_dataset/PROVENANCE.md.
+  - name: knn
+    max_na_frac: 0.4
+  - name: softimpute
+    max_na_frac: 0.4
+  - name: missforest
+    max_na_frac: 0.4
+
+methods:
+  - name: 02_median_scaling
+  - name: 03_limma
+  - name: 04_sva
+  - name: 05_combat
+  - name: 07_pycombat
+  - name: 10_mnn
+  - name: 11_harmony
+  - name: 12_scanorama
+  - name: 16_fsqn_r
+  - name: 22_tmm
+  - name: 29_combat_ref
+  - name: 38_harman
+
+metrics:
+  enabled: true
+  groups: A,B,C,D,E,G,H,J,K
+  skip_slow: true         # excludes F, I and N; --force-groups overrides this
+  marker_panel: examples/marker_panel_fl.csv
+
+# Off by default. Enabled, every job also writes a post1 variant with the most
+# PCA-deviant batch dropped, doubling the output count.
+post_removal: false
+
+# Not set: the largest batch is used, which here is RNASeq_FF_rRNADepletion (48 samples).
+# Set it explicitly if a specific platform should be the target space.
+# reference_batch: GPL570_FFPE_Unknown
+
+random_seed: 42
+run_id: example

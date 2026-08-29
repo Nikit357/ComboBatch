@@ -1,0 +1,171 @@
+---
+# Interactive ComboBatch pod: SSH in, run the dispatcher, watch it.
+#
+#   kubectl apply -f k8s/pod-combobatch.yaml -n rnd-sandbox
+#   kubectl get pod danya-nikitin-combobatch -n rnd-sandbox -w
+#   kubectl exec -it danya-nikitin-combobatch -n rnd-sandbox -- bash
+#
+# Two Secrets must exist in the namespace first; neither is committed here.
+#
+#   kubectl create secret generic danya-nikitin-ssh-pubkey \
+#       --from-file=authorized_keys=$HOME/.ssh/id_ed25519.pub -n rnd-sandbox
+#   kubectl create secret generic aws-credentials \
+#       --from-file=credentials=$HOME/.aws/credentials \
+#       --from-file=config=$HOME/.aws/config -n rnd-sandbox
+#
+# The SSH key comes from a Secret rather than the inline ConfigMap the donor's pod-ssh.yaml
+# used, so no personal identifier is committed and anyone can apply this with their own key.
+#
+# There is no imagePullSecrets: the GHCR package is public. If the pod cannot pull with a
+# 403 that reads like a missing image, the package is still private - see docker/BUILD_AND_PUSH.md.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: danya-nikitin-combobatch
+  namespace: rnd-sandbox
+  labels:
+    app: danya-nikitin-combobatch
+  annotations:
+    # Karpenter must not consolidate this node out from under a running job. The name
+    # changed in Karpenter v1; if the cluster still runs v0.3x, this is do-not-evict.
+    karpenter.sh/do-not-disrupt: "true"
+
+spec:
+  restartPolicy: OnFailure
+  shareProcessNamespace: true
+
+  containers:
+  - name: combobatch
+    image: ghcr.io/nikit357/combobatch:latest
+    imagePullPolicy: Always
+
+    # Overriding command bypasses the image ENTRYPOINT, which is what we want here: the
+    # pod's job is to stay alive, not to run the CLI once. Nothing is installed - the only
+    # startup work is enabling sshd, which takes about a second.
+    command: ["bash", "-c"]
+    args:
+      - |
+        set -u
+
+        if [ -f /etc/ssh-init/authorized_keys ]; then
+            mkdir -p /root/.ssh && chmod 700 /root/.ssh
+            cp /etc/ssh-init/authorized_keys /root/.ssh/authorized_keys
+            chmod 600 /root/.ssh/authorized_keys
+            # Host keys are generated per pod rather than baked into the image, so two
+            # pods never share an identity.
+            ssh-keygen -A
+            mkdir -p /run/sshd
+            printf '%s\n' \
+                'PermitRootLogin yes' \
+                'PubkeyAuthentication yes' \
+                'PasswordAuthentication no' >> /etc/ssh/sshd_config
+            /usr/sbin/sshd
+            echo "[startup] sshd ready - kubectl port-forward $POD_NAME 2222:22 -n rnd-sandbox"
+        else
+            echo "[startup] no SSH key mounted; use kubectl exec instead"
+        fi
+
+        # Printed so the log shows at a glance that this was an image pull and not a
+        # 40-minute install. R must say 4.5.x: 4.6 means rpy2 will segfault.
+        combobatch --version
+        Rscript -e 'cat("[startup] R", R.version$version.string, "\n")'
+        octave --version | head -1
+        echo "[startup] environment ready (nothing was installed)"
+
+        cd "${COMBOBATCH_WORK_DIR:-/workspace}"
+        echo "cd ${COMBOBATCH_WORK_DIR:-/workspace}" >> /root/.bashrc
+
+        sleep infinity
+
+    ports:
+      - containerPort: 22
+        protocol: TCP
+        name: ssh
+
+    env:
+    - name: POD_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.name
+    # One BLAS thread per worker. The dispatcher supplies the parallelism; unpinned BLAS
+    # threads oversubscribe the node and cost more than they gain. These are belt and
+    # braces only - they do not reach a process launched over SSH, which is why the real
+    # pinning is in combobatch.logging_utils.pin_threads().
+    - name: OMP_NUM_THREADS
+      value: "1"
+    - name: OPENBLAS_NUM_THREADS
+      value: "1"
+    - name: MKL_NUM_THREADS
+      value: "1"
+    - name: NUMEXPR_NUM_THREADS
+      value: "1"
+    - name: VECLIB_MAXIMUM_THREADS
+      value: "1"
+    # Read by this manifest's startup script and by anyone in the shell, not by the tool
+    # itself: every path the CLI uses is passed on the command line or in a config file.
+    - name: COMBOBATCH_WORK_DIR
+      value: "/workspace"
+
+    # requests == limits gives Guaranteed QoS, so a memory spike in one worker cannot get
+    # the pod evicted. 32 vCPU / 64 GiB is exactly a c6a.8xlarge; raise both together to
+    # keep the 2 GiB-per-vCPU ratio the family provides.
+    resources:
+      requests:
+        cpu: "32"
+        memory: "64Gi"
+      limits:
+        cpu: "32"
+        memory: "64Gi"
+
+    volumeMounts:
+    - name: work
+      mountPath: /workspace
+    - name: aws-credentials
+      mountPath: /root/.aws
+      readOnly: true
+    - name: dshm
+      mountPath: /dev/shm
+    - name: ssh-pubkey
+      mountPath: /etc/ssh-init
+      readOnly: true
+
+  volumes:
+  - name: work
+    persistentVolumeClaim:
+      claimName: danya-nikitin-fl
+  # Data access only - reading an s3:// input and writing an s3:// output. Never used to
+  # pull the image; ComboBatch touches no AWS container registry at all.
+  - name: aws-credentials
+    secret:
+      secretName: aws-credentials
+  - name: dshm
+    emptyDir:
+      medium: Memory
+      sizeLimit: 4Gi
+  - name: ssh-pubkey
+    secret:
+      secretName: danya-nikitin-ssh-pubkey
+      defaultMode: 0400
+
+  tolerations:
+    - key: node-group
+      operator: Equal
+      value: rnd-sandbox
+      effect: NoSchedule
+
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: node-group
+                operator: In
+                values:
+                  - rnd-sandbox
+
+  nodeSelector:
+    karpenter.k8s.aws/instance-family: c6a
+    # on-demand, not spot: Spot reclamation gives a two-minute SIGTERM, which cannot save
+    # a six-hour missForest job. Capacity type is a core Karpenter label (karpenter.sh/),
+    # not an AWS-provider one - see k8s/CLAUDE.md.
+    karpenter.sh/capacity-type: on-demand

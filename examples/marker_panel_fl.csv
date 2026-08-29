@@ -1,0 +1,835 @@
+gene,alias,gene_group,cell_type,pathway,tme_subtype,prognostic_significance,source_article,provenance,is_housekeeping
+AICDA,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CCND2,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CDK4,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CENPF,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+GINS2,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+MCM2,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+MCM6,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+MKI67,Ki-67,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+MYBL1,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+PCNA,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+RRM2,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+TOP2A,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+TYMS,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+UBE2C,,FL2025_C1_DZ_proliferative,centroblast (DZ),proliferation,none,adverse (PFS),"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+BCL2,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CD79A,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CD83,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CXCR4,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+FAS,CD95,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+FCER2,CD23,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IGHD,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IGHM,,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IRF4,MUM1,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+PRDM1,BLIMP1,FL2025_C2_LZ_anergy,centrocyte (LZ),apoptosis,none,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CXCL10,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CXCL11,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+CXCL9,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IFI16,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IFI27,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IFI44,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IFIT1,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+IFIT3,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+ISG15,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+MX1,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+OAS1,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+STAT1,,FL2025_C3_inflammatory,none,interferon,inflammatory,none,"Xochelli et al. 2025 Leukemia, doi:10.1038/s41375-025-02603-9",repo_panel,False
+BCL2,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+BCL6,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CCL3,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CCND2,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CDKN2A,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+FN1,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+LMO2,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+LRMP,,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+MKI67,Ki-67,FL_PFS_signature_2019,none,none,none,adverse (PFS),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+BCL2,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CCND3,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CREBBP,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+EP300,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+EZH2,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+FOXO1,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+KMT2D,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+TNFRSF14,,FL_POD24_markers,none,epigenetic,none,adverse (POD24),"Pastore et al. 2019, PMID 29475724",repo_panel,False
+CD19,,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD22,,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD79A,,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD79B,,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+MS4A1,CD20,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+PAX5,,clinical_IHC_B_cell,B cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+BCL2,,clinical_IHC_GC_B_cell,germinal centre B,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+BCL6,,clinical_IHC_GC_B_cell,germinal centre B,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+GCSAM,HGAL,clinical_IHC_GC_B_cell,germinal centre B,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+LMO2,,clinical_IHC_GC_B_cell,germinal centre B,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+MME,CD10,clinical_IHC_GC_B_cell,germinal centre B,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD2,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD3D,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD3E,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD3G,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD4,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD5,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD7,,clinical_IHC_T_cell,CD4 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD8A,,clinical_IHC_T_cell_cytotoxic,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD8B,,clinical_IHC_T_cell_cytotoxic,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD274,PD-L1,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+FOXP3,,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+IDO1,,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+LAG3,,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+PDCD1,PD-1,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+TNFRSF9,CD137,clinical_IHC_checkpoint,CD8 T,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CR2,CD21,clinical_IHC_follicular_stroma,follicular dendritic,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+FCER2,CD23,clinical_IHC_follicular_stroma,follicular dendritic,none,GC-like,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD163,,clinical_IHC_myeloid,macrophage,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+CD68,,clinical_IHC_myeloid,macrophage,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+PTPRC,CD45,clinical_IHC_myeloid,macrophage,none,inflammatory,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+IRF4,MUM1,clinical_IHC_post_GC,plasma cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+MZB1,,clinical_IHC_post_GC,plasma cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+PRDM1,BLIMP1,clinical_IHC_post_GC,plasma cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+XBP1,,clinical_IHC_post_GC,plasma cell,none,none,none,Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+MKI67,Ki-67,clinical_IHC_proliferation,none,proliferation,none,"adverse (OS, PFS)",Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+MYC,,clinical_IHC_proliferation,none,proliferation,none,"adverse (OS, PFS)",Routine diagnostic immunohistochemistry panel (WHO B-cell lymphoma criteria),article_text,False
+ANLN,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+APOBEC3B,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ASPM,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ATP5S,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ATP8B3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+BCL2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+BHLHE41,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+BMP3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+C17orf57,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+C1orf115,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CASP1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CCND2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CDK1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CENPE,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CENPF,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CYTH4,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+DEPDC1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+DHRS9,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+DLGAP5,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+EGOT,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+EGR3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ELOVL6,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ENTPD1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+FCRL5,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+FRZB,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+GABARAPL1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+GABARAPL3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+GAS2L3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+HLA-DQA1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+HLA-DQB1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+HRK,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+IQSEC1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+IRF4,MUM1,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+KANK2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+KIF14,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+KIF18A,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+KIF20A,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100506844,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100507718,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100509457,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC157740,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LRRK2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MLL,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MPEG1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NDE1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NEK2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NFKB2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NFRKB,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PARP15,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PDE8B,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PEG10,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PIF1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PLK4,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PMEPA1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+POU2AF1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PPAPDC1B,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PRDM1,BLIMP1,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PRKAR2B,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PRO1483,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+RHOBTB3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SKI,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SLAMF1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SLAMF7,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SLC41A2,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SMAD1,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SNX9,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+TOP2A,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+WASF3,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+WNT2B,,dybkaer_centroblast_DZ,centroblast (DZ),proliferation,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ACTN2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+BAIAP2L1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+BCL2A1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+C3orf38,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CAMK2B,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CCNB2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CELF2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+CHPT1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+COL5A1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+DHRS9,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+DNER,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+EGR3,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+FEZ1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+FGD6,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+GPR82,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+HLA-DQA1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+HLA-DQB1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+IGSF10,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ITGB3,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+JUN,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+KIF13A,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LIMD1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100506930,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100507718,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LOC100509457,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+LPL,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MATR3,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MED12L,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MFSD4,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MGC39372,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+MSH6,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NDE1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NFRKB,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NLRP4,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+NOTCH2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+P2RY12,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PANK1,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PDE4B,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PDE8B,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PNKD,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PRDM1,BLIMP1,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PRO1483,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+PTPRJ,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SERPINA9,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SLC41A2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SOX9,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SSPN,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SYCP3,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SYTL4,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+SZT2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+TBC1D9,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+UEVLD,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+WASF3,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+WNT2B,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+ZEB2,,dybkaer_centrocyte_LZ,centrocyte (LZ),none,none,none,"Dybkaer et al. 2015 J Clin Oncol 33(12):1379-1388, PMC4397280",dybkaer_table_ds1,False
+AICDA,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CALM3,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CBX3,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+COX8A,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CXCR4,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FOXP1,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+H1FX,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+H2AFV,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+H2AFZ,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HMGB2,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HMGN2,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HNRNPM,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LSM10,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LSM5,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MZT2B,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PCLAF,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RPS27L,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+STMN1,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUGCT,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+VIM,,holmes_DZ_a,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+AICDA,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+C4orf3,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD27,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CHMP7,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CXCR4,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+EZR,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FOXP1,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GMFG,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GNG7,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFT57,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ISG20,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+JCHAIN,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LSM10,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ORAI2,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RUBCNL,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SH3TC1,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SNX2,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUGCT,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUSD3,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TPD52,,holmes_DZ_b,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+AICDA,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+C4orf3,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GMFG,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+H2AFV,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ISG20,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LAMTOR5,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NACAP1,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NDUFA1,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NDUFA2,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PCLAF,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PFDN4,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RGCC,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RSL24D1,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+S100A10,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SLC2A5,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SNRNP27,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUGCT,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUSD3,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SYNE2,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+USP34,,holmes_DZ_c,centroblast (DZ),proliferation,GC-like,adverse (PFS; DZ signature enriched in MYC/BCL2 double-hit),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+C12orf75,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD24,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD27,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FAM107B,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FCRLA,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GSN,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HCST,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HMCES,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IGHM,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ISG20,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LTB,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+METAP2,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NCF1C,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PLCG2,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PTPN6,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SEMA4A,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SIT1,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TKT,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+VPREB3,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ZNF581,,holmes_INT_a,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ATP5EP2,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ATP5J2,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ATRX,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CCDC144B,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CHCHD10,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DHRS9,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ELL3,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GCHFR,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DQB1,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ID3,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFI30,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+N4BP2L2,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NDUFA1,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RGS13,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ROMO1,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RPS26,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SELENOH,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SS18L2,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+VPREB3,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ZNF277,,holmes_INT_b,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CAMK1,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD83,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FCRL2,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FCRL3,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GMDS,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DQB1,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HOPX,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ICAM3,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IMPDH2,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LNPEP,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MGEA5,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NT5C3A,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PIP4K2A,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PNRC1,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+POU2F2,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RGS10,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RPS4Y1,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SIGLEC10,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TRIM38,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ZBTB20,,holmes_INT_c,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ACP5,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ANXA6,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BANK1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD180,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD72,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CNN2,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DDIT4,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FAM26F,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GPX1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DRB6,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HVCN1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFI30,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFNGR1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IGHM,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LYL1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PPP1R18,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PTPN6,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SIPA1,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SMIM14,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TAGLN2,,holmes_INT_d,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CAMK1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD22,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD53,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DHRS9,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ERP44,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FCRLA,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GPR18,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DPB1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DQB1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DRB1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HLA-DRB5,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LMO2,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LPP,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MARCKSL1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PAG1,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PLD4,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SCIMP,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SERPINA9,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SIAH2,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SMIM14,,holmes_INT_e,centrocyte (LZ),none,GC-like,mixed (INT-b/INT-e associate with the EZB genetic group),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BCL2A1,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BIK,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BIRC3,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD83,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DHRS9,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DUSP2,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ERP44,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GMDS,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HOPX,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IER2,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ITGB2,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+JUNB,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LMO2,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NFKBIA,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PIM3,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PLEK,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PTPN6,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+REL,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TRAF4,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+VASP,,holmes_LZ_a,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BCL2A1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+C1QBP,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD83,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DDX21,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DUSP2,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+EBI3,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+EIF5A,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+EIF5AL1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FABP5,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+GMDS,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HSPD1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HSPE1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LDHA,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NME1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PPAN,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PSME2,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RANBP1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RPL22L1,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SMS,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SRM,,holmes_LZ_b,centrocyte (LZ),NF-kB,GC-like,favourable (PFS; late-LZ/INT Group IV best PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DNAJB9,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FKBP11,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HSP90B1,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+JCHAIN,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MANF,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MYDGF,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MZB1,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+P4HB,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PDIA4,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PRDM1,BLIMP1,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RASSF6,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SDF2L1,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SEC11C,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SELENOK,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SELENOS,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SSR3,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SSR4,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUB1,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TMED10,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+XBP1,,holmes_PBL_a,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DERL3,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+DNAJB9,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FKBP11,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HM13,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HSP90B1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+HSPA5,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MANF,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MYDGF,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+MZB1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+NPC2,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+PIM2,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+RGS1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SDF2L1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SEC11C,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SELENOS,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SSR3,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SSR4,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUB1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TXNDC5,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+XBP1,,holmes_PBL_b,plasma cell,none,none,mixed (Group V),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BANK1,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CAPG,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CCR6,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD44,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CD48,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+CLECL1,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+EMP3,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+FXYD5,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFITM1,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+IFITM2,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LITAF,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+LY6E,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+S100A4,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SARAF,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SELL,CD62L,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+SUB1,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TNFRSF13B,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+TXNIP,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+VIM,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+ZFP36L2,,holmes_PreM,memory precursor,none,GC-like,"favourable (PFS, Group V)","Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",holmes_table_s2,False
+BCL2,,holmes_double_hit_signature,centroblast (DZ),proliferation,none,adverse (PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",article_text,False
+MYC,,holmes_double_hit_signature,centroblast (DZ),proliferation,none,adverse (PFS),"Holmes et al. 2020 J Exp Med 217(10):e20200483, PMC7537389",article_text,False
+ACTB,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+B2M,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+EEF1A1,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+GAPDH,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+HPRT1,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+PGK1,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+PPIA,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+PSMB4,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+RPL13A,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+RPLP0,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+SDHA,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+TBP,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+TUBB,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+UBC,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+YWHAZ,,housekeeping,none,none,none,none,Standard RT-qPCR reference gene panel,housekeeping,True
+ACP1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BATF,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BCL2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCND2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CSNK1E,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CSTB,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FAM3C,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FUT8,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GOT2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GPR18,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DQA1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IGHM,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IRF4,MUM1,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ITPKB,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KRT8,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LMO2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LRMP,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MYBL1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+P2RX5,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PIM1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PIM2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PLEK,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PRKCB1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PTPN1,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+REL,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+RPL21,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SLA,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SP140,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SPIB,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SPINK2,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TCF4,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VCL,,kotlov_COO_classifier,germinal centre B,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+AFMID,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ANKRD33B,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BATF,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+EBI3,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+EIF4EBP3,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FAM216A,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FHIT,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GNG2,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HAGHL,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL21R,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IRF4,MUM1,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NMRAL1,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+OR13A1,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PEG10,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SEMA7A,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SGPP2,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SLC25A27,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SMIM14,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+STAT3,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TACC1,,kotlov_DHIT_classifier,centroblast (DZ),none,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BLK,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD19,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD22,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD24,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD79A,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD79B,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FCRL5,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MS4A1,CD20,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PAX5,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+STAP1,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFRSF13B,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFRSF13C,,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFRSF17,BCMA,kotlov_FGES_B_cells,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCL20,,kotlov_FGES_B_cells_traffic,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCR6,,kotlov_FGES_B_cells_traffic,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL13,,kotlov_FGES_B_cells_traffic,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR5,,kotlov_FGES_B_cells_traffic,B cell,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ACTA2,SMA,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CA9,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD248,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL11A1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL1A1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL1A2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL4A1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL5A1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL6A1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL6A2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL6A3,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CTGF,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FAP,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FBLN1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FGF2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FN1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LGALS1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LGALS9,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LRP1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LUM,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MFAP5,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP12,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP3,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP7,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP9,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PRELP,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PTGS2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+S100A4,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TGFB1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TGFB2,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TGFB3,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TIMP1,,kotlov_FGES_CAF,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL1A1,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL1A2,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL3A1,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+COL4A1,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FN1,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LGALS7,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VTN,,kotlov_FGES_ECM,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CA9,,kotlov_FGES_ECM_remodeling,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP2,,kotlov_FGES_ECM_remodeling,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MMP9,,kotlov_FGES_ECM_remodeling,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TIMP1,,kotlov_FGES_ECM_remodeling,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TIMP2,,kotlov_FGES_ECM_remodeling,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BST1,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CLU,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FDCSP,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LTBR,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDPN,podoplanin,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PRNP,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFRSF1A,,kotlov_FGES_FDC,follicular dendritic,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ACTA2,SMA,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+DES,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ICAM1,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LTBR,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NT5E,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDGFRA,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDPN,podoplanin,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PTGS2,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+THY1,CD90,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VCAM1,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VIM,,kotlov_FGES_FRC,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BTLA,,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD274,PD-L1,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CTLA4,CD152,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HAVCR2,TIM-3,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LAG3,,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDCD1,PD-1,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDCD1LG2,PD-L2,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TIGIT,,kotlov_FGES_IS_checkpoints,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCL4,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL8,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL10,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL22,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL6,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MIF,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFSF13B,,kotlov_FGES_IS_cytokines,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCL21,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXADR,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL12,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+EDNRB,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FLT4,VEGFR3,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FOXC2,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+JAM2,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+JAM3,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+LYVE1,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDPN,podoplanin,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PPP1R13B,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PROX1,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SOX18,,kotlov_FGES_LEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+B2M,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-A,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-B,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-C,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TAP1,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TAP2,,kotlov_FGES_MHC_I,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DMA,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DMB,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DPA1,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DPB1,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DQA1,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DQB1,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DRA,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+HLA-DRB1,,kotlov_FGES_MHC_II,none,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BIRC3,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CD40,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+NFKB1,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+NFKB2,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+NFKBIA,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+REL,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+RELA,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+RELB,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+TNFAIP3,,kotlov_FGES_NFkB,none,NF-kB,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CD160,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD226,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD244,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+EOMES,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FGFBP2,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GNLY,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GZMB,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GZMH,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IFNG,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KIR2DL4,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KLRC2,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KLRF1,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KLRK1,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NCR1,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NCR3,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NKG7,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SH2D1B,,kotlov_FGES_NK,NK,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+AKT1,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+AKT2,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+AKT3,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+MTOR,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+PIK3CA,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+PIK3CB,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+PIK3CD,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+PTEN,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+RPS6KB1,,kotlov_FGES_PI3K,none,PI3K-AKT,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+BCL6,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD40LG,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD84,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR5,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ICOS,CD278,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL21,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL4,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL6,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MAF,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SH2D1A,,kotlov_FGES_TFH,CD4 T,none,GC-like,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+SERPINE1,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+SMAD1,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+SMAD2,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+SMAD3,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+SMAD7,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+TGFB1,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+TGFBR1,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+TGFBR2,,kotlov_FGES_TGFB,stromal/fibroblast,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+CD28,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD3D,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD3E,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD3G,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ITK,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TBX21,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TRAC,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TRAT1,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TRBC1,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TRBC2,,kotlov_FGES_TIL,CD4 T,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCL5,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CX3CL1,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CX3CR1,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL10,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL11,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL9,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR3,,kotlov_FGES_T_cells_traffic,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCR8,,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CTLA4,CD152,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FOXP3,,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IKZF2,,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IKZF4,,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL10,,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNFRSF18,GITR,kotlov_FGES_Treg,Treg,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ANGPT1,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ANGPT2,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CDH5,VE-cadherin,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL5,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL8,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR2,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+FLT1,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KDR,VEGFR2,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PDGFC,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PGF,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TEK,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VEGFA,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VEGFB,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VEGFC,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+VWF,,kotlov_FGES_VEC,endothelial,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CMKLR1,,kotlov_FGES_activated_M1,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL1B,,kotlov_FGES_activated_M1,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+NOS2,,kotlov_FGES_activated_M1,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+TNF,,kotlov_FGES_activated_M1,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+AURKA,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+AURKB,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+BUB1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCNB1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCND1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCNE1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CDK2,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CETN3,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+E2F1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ESCO2,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MCM2,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MCM6,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MKI67,Ki-67,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MYBL2,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+PLK1,,kotlov_FGES_cell_proliferation,none,proliferation,depleted,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+GNLY,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+GZMA,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+GZMB,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+GZMH,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+GZMK,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+KLRD1,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+NKG7,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+PRF1,,kotlov_FGES_cytolytic,CD8 T,none,inflammatory,favourable (OS),"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CD1C,,kotlov_FGES_dendritic_cells,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CLEC9A,,kotlov_FGES_dendritic_cells,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+FLT3,,kotlov_FGES_dendritic_cells,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+ITGAX,CD11c,kotlov_FGES_dendritic_cells,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+LAMP3,,kotlov_FGES_dendritic_cells,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CCL11,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCR3,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL1,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL2,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL5,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCL8,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR1,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CXCR2,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KIT,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+KITLG,,kotlov_FGES_granulocyte_traffic,none,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+ADM,,kotlov_FGES_hypoxia,none,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+CA9,,kotlov_FGES_hypoxia,none,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+HIF1A,,kotlov_FGES_hypoxia,none,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+LDHA,,kotlov_FGES_hypoxia,none,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+SLC2A1,,kotlov_FGES_hypoxia,none,none,mesenchymal,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+IFI27,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+IFI44,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+IFIT1,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+IFIT3,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+IRF7,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+ISG15,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+MX1,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+OAS1,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+STAT1,,kotlov_FGES_interferon,none,interferon,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",canonical_marker,False
+ARG1,,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CD163,,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CSF1,,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CSF1R,CD115,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+IL10,,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MRC1,CD206,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+MSR1,,kotlov_FGES_macrophages,macrophage,none,inflammatory,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",kotlov_table_s1,False
+CCND3,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+CD70,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+CD79B,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+CDKN2A,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+CREBBP,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+EP300,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+EZH2,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+GNA13,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+GNAI2,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+KMT2D,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+MYD88,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+P2RY8,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False
+TP53,,kotlov_curated_alterations,none,epigenetic,none,none,"Kotlov et al. 2021 Cancer Discov, PMC8178179",article_text,False

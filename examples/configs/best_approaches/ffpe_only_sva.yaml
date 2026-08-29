@@ -1,0 +1,44 @@
+# Scenario: FFPE samples only.
+# Recommendation: 04_sva on softimpute. This branch had the best local batch mixing of
+# anything in the benchmark - which matters, because local mixing is where almost every
+# approach fails (caveat 2 in the README).
+#
+#   combobatch run --config examples/configs/best_approaches/ffpe_only_sva.yaml
+#
+# softimpute rather than strict: FFPE degrades RNA, so FFPE-only subsets carry the most
+# missingness, and dropping every gene with an NA would throw away most of the matrix.
+# knn is the documented alternative, about 10 percentage points worse by PCR.
+#
+# CAVEAT ON THE EXAMPLE DATASET: this subset leaves 40 samples in a *single* batch
+# (GPL570_FFPE_Unknown), so there is no between-batch structure left to correct. It
+# demonstrates the invocation, not a meaningful harmonization. Point it at your own
+# multi-batch FFPE data for that.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/best_approaches/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+subset_query: "RNA_BATCH.str.contains('_FFPE_')"
+
+imputations:
+  - name: softimpute
+    max_na_frac: 0.3
+  # - name: knn            # the alternative; ~10 pp worse by PCR
+
+methods:
+  - name: 04_sva
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K,L,M
+  marker_panel: examples/marker_panel_fl.csv
+
+post_removal: false
+random_seed: 42

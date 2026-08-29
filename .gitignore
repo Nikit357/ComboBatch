@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ComboBatch run artefacts — outputs belong in a user-specified --out, never in the repo
+out/
+work/
+*.log
+failed_jobs_*.txt
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Local credentials — never commit
+.aws/
+*.pem
+.env
+
+# Deliberately NOT ignored (they are committed on purpose):
+#   examples/example_dataset/example_exp.tsv.gz   ~13.9 MB, the demo dataset
+#   combobatch/data/calibration/*.csv.gz          ~10.1 MB, Shambhala P0/Q0 defaults

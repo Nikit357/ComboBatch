@@ -1,0 +1,43 @@
+# Scenario: fresh-frozen samples only, mixed platforms.
+# Recommendation: 10_mnn on strict imputation. Alternative: 16_fsqn_r.
+#
+#   combobatch run --config examples/configs/best_approaches/ff_only_mnn.yaml
+#
+# Restricting to one preservation type removes the largest single source of batch
+# structure before harmonization starts, which is why the FF-only branch tolerates
+# `strict` - after the subset there is much less missingness to impute around.
+#
+# On the example dataset this selects 104 samples across 3 batches (RNASeq_FF_rRNADepletion,
+# GPL17586_FF_Unknown, GPL20188_FF_Unknown).
+#
+# Read examples/configs/best_approaches/README.md before treating this as "the best".
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/best_approaches/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+subset_query: "RNA_BATCH.str.contains('_FF_')"
+
+imputations:
+  - name: strict
+
+methods:
+  - name: 10_mnn
+  # - name: 16_fsqn_r        # the alternative; uncomment to compare the two
+
+metrics:
+  enabled: true
+  # L and M are here on purpose: they are what would catch this configuration damaging
+  # the biology it is supposed to preserve. See caveat 4 in the README.
+  groups: A,B,E,J,K,L,M
+  marker_panel: examples/marker_panel_fl.csv
+
+post_removal: false
+random_seed: 42

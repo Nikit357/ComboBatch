@@ -1,0 +1,131 @@
+---
+# Unattended cross-product run. Use this rather than the interactive pod when the job is
+# defined and you just want it to finish.
+#
+#   1. put the config on the PVC first (from the interactive pod, or an initContainer):
+#        kubectl cp examples/configs/full_crossproduct.yaml \
+#            rnd-sandbox/danya-nikitin-combobatch:/workspace/configs/run.yaml
+#   2. edit the args below to match it
+#   3. kubectl apply -f k8s/job-combobatch.yaml -n rnd-sandbox
+#      kubectl logs -f job/danya-nikitin-combobatch-dispatch -n rnd-sandbox
+#
+# The PVC is ReadWriteOnce, so this Job and the interactive pod cannot run at the same
+# time - delete one before starting the other.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: danya-nikitin-combobatch-dispatch
+  namespace: rnd-sandbox
+  labels:
+    app: danya-nikitin-combobatch
+
+spec:
+  # A failed six-hour run should be looked at, not silently repeated. Re-running after a
+  # fix is cheap anyway: --skip-if-exists means finished combinations are not recomputed.
+  backoffLimit: 0
+  completions: 1
+  parallelism: 1
+  # Uncomment to have the Job (and its logs) garbage-collected a week after it finishes.
+  # Left off by default because `kubectl logs` is the only copy of the run log.
+  # ttlSecondsAfterFinished: 604800
+
+  template:
+    metadata:
+      labels:
+        app: danya-nikitin-combobatch
+      annotations:
+        karpenter.sh/do-not-disrupt: "true"
+    spec:
+      restartPolicy: Never
+      # The dispatcher handles SIGTERM by flushing its failed-jobs log so a killed run can
+      # be resumed with --retry-failed. The default 30s is enough for that; this gives it
+      # room while workers wind down.
+      terminationGracePeriodSeconds: 120
+
+      containers:
+      - name: combobatch
+        image: ghcr.io/nikit357/combobatch:latest
+        imagePullPolicy: Always
+
+        # Explicit rather than relying on the image entry point to infer it.
+        command: ["combobatch"]
+        args:
+          - "dispatch"
+          - "--config"
+          - "/workspace/configs/run.yaml"
+          - "--n-workers"
+          - "8"
+          - "--skip-if-exists"
+          - "--memory-limit-gb"
+          - "8.0"
+          - "--timeout-s"
+          - "21600"
+
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: OMP_NUM_THREADS
+          value: "1"
+        - name: OPENBLAS_NUM_THREADS
+          value: "1"
+        - name: MKL_NUM_THREADS
+          value: "1"
+        - name: NUMEXPR_NUM_THREADS
+          value: "1"
+        - name: VECLIB_MAXIMUM_THREADS
+          value: "1"
+        - name: COMBOBATCH_WORK_DIR
+          value: "/workspace"
+
+        # --n-workers above and this request move together: 8 workers on 32 vCPU leaves
+        # room for the R sessions each one spawns.
+        resources:
+          requests:
+            cpu: "32"
+            memory: "64Gi"
+          limits:
+            cpu: "32"
+            memory: "64Gi"
+
+        volumeMounts:
+        - name: work
+          mountPath: /workspace
+        - name: aws-credentials
+          mountPath: /root/.aws
+          readOnly: true
+        - name: dshm
+          mountPath: /dev/shm
+
+      volumes:
+      - name: work
+        persistentVolumeClaim:
+          claimName: danya-nikitin-fl
+      - name: aws-credentials
+        secret:
+          secretName: aws-credentials
+      - name: dshm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 4Gi
+
+      tolerations:
+        - key: node-group
+          operator: Equal
+          value: rnd-sandbox
+          effect: NoSchedule
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-group
+                    operator: In
+                    values:
+                      - rnd-sandbox
+
+      nodeSelector:
+        karpenter.k8s.aws/instance-family: c6a
+        karpenter.sh/capacity-type: on-demand

@@ -1,0 +1,46 @@
+# Scenario: RNA-seq plus mixed microarray platforms - the hardest case, no subsetting.
+# Recommendation: 10_mnn on strict, with post-removal enabled.
+#
+#   combobatch run --config examples/configs/best_approaches/multiplatform_mnn.yaml
+#
+# Mutual nearest neighbours works across platforms because it matches samples rather than
+# distributions, so it does not assume the batches share a scale. Raise k when batches are
+# large and lower it when a batch has few samples; `combobatch list-methods` shows the
+# default.
+#
+# This is the branch where caveat 2 bites hardest: local metrics (kBET, iLISI) fail for
+# essentially every method on cross-platform data. Good global scores here do not mean the
+# batches are locally mixed, and no method in the benchmark achieved that.
+#
+# On the example dataset this uses all 144 samples across 4 batches and 4 platforms -
+# the scenario the dataset was assembled for.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/best_approaches/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+  metric_batch_cols: [RNA_BATCH, PLATFORM_RNA]
+
+imputations:
+  - name: strict
+
+methods:
+  - name: 10_mnn
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K,L,M
+  marker_panel: examples/marker_panel_fl.csv
+
+post_removal:
+  enabled: true
+  n_batches: 1
+  min_batch_size: 20
+
+random_seed: 42

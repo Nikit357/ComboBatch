@@ -1,0 +1,95 @@
+# Tuning both axes: imputer hyperparameters and method hyperparameters.
+#
+#   combobatch dispatch --config examples/configs/hyperparameters.yaml --dry-run
+#
+# This is the feature the tool exists for. In the pipeline it was ported from, every
+# method ran at its defaults and the keyword arguments were unreachable, so a benchmark
+# could never answer "would k = 50 have done better?".
+#
+# Two things follow from tuning, and both show up in the output keys:
+#
+#   * A parameter tag is appended when a selection is not at pure defaults, so two runs of
+#     the same method cannot overwrite each other:
+#         strict__10_mnn.tsv.gz            (defaults - no tag)
+#         strict__10_mnn__k50.tsv.gz       (k = 50)
+#   * `run_manifest.json` maps every tag back to the parameters it stands for, so a tag
+#     never has to be decoded by eye.
+#
+# `param_tag` below overrides the generated tag. Use it when the automatic one would be
+# unwieldy, and keep it short - it becomes part of a filename.
+#
+# The imputation and method halves share one tag slot. Tuning the same parameter name on
+# both sides is rejected at parse time rather than silently resolved.
+#
+# `combobatch list-methods` prints every tunable parameter, its type and its default.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+imputations:
+  # The baseline. `strict` has one parameter, max_na_frac, and it is fixed at 0.0: a gene
+  # with any NA is dropped. That is what makes it strict.
+  - name: strict
+
+  # More neighbours, and a tolerance for genes that are up to 40% missing. max_na_frac is
+  # the gate applied *before* imputation - genes emptier than this are dropped, not filled.
+  - name: knn
+    max_na_frac: 0.4
+    params:
+      knn_k: 15
+      weights: distance      # weight neighbours by distance instead of uniformly
+
+  # Rank-constrained matrix completion. rank_max caps the SVD rank; lambda_ is the
+  # nuclear-norm penalty. Both default to softImpute's own heuristics when unset.
+  - name: softimpute
+    max_na_frac: 0.4
+    params:
+      rank_max: 30
+      lambda_: 10.0
+    param_tag: si_r30       # instead of the generated rank_max30_lambda_10.0
+
+methods:
+  # Same method twice at different k. Without the tag these would be the same output key,
+  # and the second run would silently overwrite the first.
+  - name: 10_mnn
+  - name: 10_mnn
+    params:
+      k: 50
+
+  - name: 11_harmony
+    params:
+      n_pcs: 30
+      max_iter: 50
+
+  # target_group names the batch every other batch is mapped onto. Left unset it resolves
+  # to the largest batch; nine methods take it, and it is never hardcoded.
+  - name: 16_fsqn_r
+    params:
+      target_group: RNASeq_FF_rRNADepletion
+
+  - name: 22_tmm
+    params:
+      method: RLE            # instead of edgeR's default TMM
+      prior_count: 2.0
+
+  # Control genes for RUV: housekeeping genes assumed unaffected by biology. The default
+  # list is a generic housekeeping panel; override it with genes your platform measures.
+  - name: 09_ruv
+    params:
+      k: 3
+      control_genes: [ACTB, GAPDH, B2M, HPRT1, RPL13A, TBP, UBC]
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K
+  marker_panel: examples/marker_panel_fl.csv
+
+random_seed: 42

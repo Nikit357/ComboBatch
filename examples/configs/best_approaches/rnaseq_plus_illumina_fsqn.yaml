@@ -1,0 +1,51 @@
+# Scenario: RNA-seq together with Illumina microarrays, no subsetting.
+# Recommendation: 16_fsqn_r on strict, with post-removal enabled.
+# Alternatives: 33_amdbnorm, 13_fsmvn.
+#
+#   combobatch run --config examples/configs/best_approaches/rnaseq_plus_illumina_fsqn.yaml
+#
+# Feature-specific quantile normalization maps every batch onto one reference batch's
+# per-gene distribution, which is why it holds up when the platforms are as different as
+# sequencing and arrays. Leave target_group unset and the largest batch is used; name it
+# explicitly when a specific platform should be the target space.
+#
+# Post-removal is enabled here, unlike the other branches: it drops the most PCA-deviant
+# batch *after* harmonization and writes it as a separate post1 output, so you get both
+# and can compare. It never silently replaces the post0 result.
+#
+# CAVEAT ON THE EXAMPLE DATASET: it contains no Illumina arrays - the platforms are
+# GPL570, GPL17586, GPL20188 and RNA-seq. The configuration runs on all 144 samples and
+# 4 batches and demonstrates the recipe, but the scenario it is named for needs your data.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/best_approaches/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+imputations:
+  - name: strict
+
+methods:
+  - name: 16_fsqn_r
+    params:
+      target_group: RNASeq_FF_rRNADepletion
+  # - name: 33_amdbnorm      # alternatives
+  # - name: 13_fsmvn
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K,L,M
+  marker_panel: examples/marker_panel_fl.csv
+
+post_removal:
+  enabled: true
+  n_batches: 1
+  min_batch_size: 20
+
+random_seed: 42

@@ -1,0 +1,41 @@
+# Scenario: RNA-seq only, several sequencing batches.
+# Recommendation: 04_sva on softimpute. Runner-up: 16_fsqn_r.
+#
+#   combobatch run --config examples/configs/best_approaches/rnaseq_only_sva.yaml
+#
+# This is the branch the literature-weighted ranking favours most strongly - its entire
+# top ten came from RNA-seq-only runs. That is also a warning: see caveat 3 in the README,
+# because the three rankings the benchmark computed have zero overlap with each other.
+#
+# CAVEAT ON THE EXAMPLE DATASET: this subset leaves 34 samples in a *single* batch
+# (RNASeq_FF_rRNADepletion), so nothing is left to harmonize across. It demonstrates the
+# invocation. Real use needs several sequencing batches.
+
+input:
+  expression: examples/example_dataset/example_exp.tsv.gz
+  annotation: examples/example_dataset/example_ann.csv
+
+output: ./out/best_approaches/
+
+columns:
+  batch: RNA_BATCH
+  bio: Diagnosis_cell_type_unified
+  cohort: COHORT_LABEL
+
+subset_query: "RNA_BATCH.str.startswith('RNASeq')"
+
+imputations:
+  - name: softimpute
+    max_na_frac: 0.3
+
+methods:
+  - name: 04_sva
+  # - name: 16_fsqn_r        # the runner-up
+
+metrics:
+  enabled: true
+  groups: A,B,E,J,K,L,M
+  marker_panel: examples/marker_panel_fl.csv
+
+post_removal: false
+random_seed: 42

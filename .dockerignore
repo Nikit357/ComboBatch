@@ -1,0 +1,26 @@
+# Keep the build context small and the image reproducible.
+.git/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.idea/
+.vscode/
+
+# Run artefacts and local credentials must never enter an image layer
+out/
+work/
+*.log
+.aws/
+.env
+*.pem
+
+# Planning documents are not needed at runtime
+*_plan_*.md

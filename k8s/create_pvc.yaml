@@ -1,0 +1,29 @@
+---
+# The /workspace volume. Both the pod and the Job mount this claim.
+#
+#   kubectl apply -f k8s/create_pvc.yaml -n rnd-sandbox
+#
+# This claim already exists and is Bound (verified 2026-08-29: 100Gi, RWO,
+# ebs-gp3-delete, 130 days old), created for the dissertation project - ComboBatch reuses
+# it rather than allocating a second 100 GiB. This file matches that claim exactly, so
+# applying it is a no-op; it is here for a fresh cluster and as the record of what the
+# pods expect. A bound PVC's size and access mode are immutable, so a divergent spec here
+# would be an error rather than a silent change.
+#
+# ReadWriteOnce: exactly one pod may mount it at a time, so the interactive pod and the
+# dispatch Job cannot run simultaneously.
+#
+# No storageClassName, so the cluster default applies - ebs-gp3-delete in this cluster.
+# Its reclaim policy is Delete: deleting this claim destroys the volume and everything
+# on it. Outputs worth keeping belong on S3, not only here.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: danya-nikitin-fl
+  namespace: rnd-sandbox
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
