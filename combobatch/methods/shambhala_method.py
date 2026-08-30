@@ -43,6 +43,9 @@ DEFAULT_Q = "Q0_standard.csv.gz"
 # to reproduce quietly. A warning, not an error: it is a heuristic over user data.
 _LOG_SCALE_MAX = 30.0
 
+# Anything above a rounding-level trace of NaN is a failed harmonization, not a result.
+_MAX_NAN_FRACTION = 0.01
+
 
 @functools.lru_cache(maxsize=2)
 def load_calibration(name: str) -> pd.DataFrame:
@@ -359,4 +362,18 @@ def normalize_shambhala(
 
     p_df = dataio.read_table(P) if P else None
     q_df = dataio.read_table(Q) if Q else None
-    return shambhala_harmonize(exp_df, p_df, q_df, **params)
+    out = shambhala_harmonize(exp_df, p_df, q_df, **params)
+
+    # Shambhala degrades into NaN on a narrow matrix rather than failing, and it does so
+    # gradually: measured at 80 samples, 200 genes gives 100% NaN, 400 gives 15%, and
+    # 800 gives none. The 15% case is the dangerous one — not all-NaN, so nothing
+    # downstream notices, and a partly-empty matrix ships labelled as harmonized.
+    nan_fraction = float(np.isnan(out.to_numpy(dtype=float)).mean())
+    if nan_fraction > _MAX_NAN_FRACTION:
+        raise RuntimeError(
+            f"20_shambhala returned {nan_fraction:.1%} NaN, which is not a result. "
+            f"The input carried {out.shape[1]} genes; Shambhala needs several hundred "
+            "at minimum (measured: 200 genes -> 100% NaN, 400 -> 15%, 800 -> none). "
+            "Widen the input, or check that its gene symbols match the P and Q panels."
+        )
+    return out

@@ -36,6 +36,12 @@ N_DIAGNOSES = 2
 NA_FRACTION = 0.10
 RANDOM_SEED = 42
 
+# 20_shambhala alone needs a wider matrix: at 80 samples it returns 100% NaN with 200
+# genes, 15% with 400 and none with 800. Widening the shared fixture would slow the
+# other 33 methods for nothing, so this one runs against its own.
+SHAMBHALA_KEY = "20_shambhala"
+SHAMBHALA_N_GENES = 800
+
 BATCH_COL = "batch"
 BIO_COL = "bio"
 
@@ -53,21 +59,54 @@ class Result:
     traceback: str = ""
 
 
-def make_synthetic() -> tuple[pd.DataFrame, pd.DataFrame]:
+def _gene_names(n_genes: int = N_GENES) -> list[str]:
+    """
+    Return ``n_genes`` gene symbols the Shambhala calibration panels also carry.
+
+    Placeholder names like ``GENE0001`` make ``20_shambhala`` unrunnable by construction:
+    it intersects the input against real HGNC symbols in its P and Q panels, finds
+    nothing, and reports a failure that is an artefact of the fixture rather than of the
+    image. Falls back to placeholders if the panels cannot be read, so the selftest still
+    runs everything else on a machine without the package data.
+    """
+    try:
+        from combobatch.methods.shambhala_method import (
+            DEFAULT_P,
+            DEFAULT_Q,
+            load_calibration,
+        )
+
+        shared = load_calibration(DEFAULT_P).columns.intersection(
+            load_calibration(DEFAULT_Q).columns
+        )
+        if len(shared) >= n_genes:
+            return list(shared[:n_genes])
+    except Exception:
+        pass
+    return [f"GENE{j:04d}" for j in range(n_genes)]
+
+
+def make_synthetic(n_genes: int = N_GENES) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Build the synthetic expression matrix and annotation.
 
+    Parameters
+    ----------
+    n_genes
+        Width of the matrix. Only ``20_shambhala`` needs more than the default; see
+        ``SHAMBHALA_N_GENES``.
+
     Returns
     -------
-    ``(exp_df, ann_df)`` — 80 samples x 200 genes, raw scale, with a batch and a biology
-    column, aligned on the index.
+    ``(exp_df, ann_df)`` — 80 samples x ``n_genes`` genes, raw scale, with a batch and a
+    biology column, aligned on the index.
     """
     rng = np.random.default_rng(RANDOM_SEED)
     samples = [f"S{i:04d}" for i in range(N_SAMPLES)]
     exp_df = pd.DataFrame(
-        rng.exponential(5.0, size=(N_SAMPLES, N_GENES)) + 2.0,
+        rng.exponential(5.0, size=(N_SAMPLES, n_genes)) + 2.0,
         index=samples,
-        columns=[f"GENE{j:04d}" for j in range(N_GENES)],
+        columns=_gene_names(n_genes),
     )
     ann_df = pd.DataFrame(
         {
@@ -206,11 +245,15 @@ def check_methods(
         if spec.uses_reference_batch and params.get("target_group") is None:
             params["target_group"] = ann_df[BATCH_COL].value_counts().idxmax()
 
+        method_exp, method_ann = exp_df, ann_df
+        if key == SHAMBHALA_KEY:
+            method_exp, method_ann = make_synthetic(SHAMBHALA_N_GENES)
+
         results.append(
             _run_one(
                 key,
-                lambda s=spec, p=params: s.fn(
-                    exp_df, ann_df, batch_col=BATCH_COL, bio_col=BIO_COL, **p
+                lambda s=spec, p=params, e=method_exp, a=method_ann: s.fn(
+                    e, a, batch_col=BATCH_COL, bio_col=BIO_COL, **p
                 ),
             )
         )
@@ -224,9 +267,11 @@ def describe_environment() -> list[str]:
     lines = [f"Python        {sys.version.split()[0]}"]
 
     try:
-        import rpy2
+        # Not `rpy2.__version__`: rpy2 3.6 does not define it, so reading it raised
+        # AttributeError and this block reported "not installed" for a working install.
+        import importlib.metadata
 
-        lines.append(f"rpy2          {rpy2.__version__}")
+        lines.append(f"rpy2          {importlib.metadata.version('rpy2')}")
     except Exception:
         lines.append("rpy2          not installed")
 

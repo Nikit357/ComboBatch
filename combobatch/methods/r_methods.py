@@ -521,10 +521,18 @@ def normalize_harmonizr(
     *,
     batch_col: str,
     algorithm: str = "ComBat",
+    combat_mode: int = 2,
     **kw,
 ) -> pd.DataFrame:
     """
     HarmonizR (Voss et al. 2022): NA-aware ComBat/limma over matrix blocks.
+
+    ``combat_mode`` defaults to 2, not to HarmonizR's own 1. Modes 1 and 3 are the two
+    with ``mean.only = FALSE``, and on a matrix without missing values both write an
+    *empty* output file rather than raising — measured at 200x80 with 3 batches, on
+    exponential and normal data alike. Modes 2 and 4 return every gene. The cost is that
+    ComBat adjusts location only, which is why the parameter is exposed rather than
+    silently chosen.
 
     Returns
     -------
@@ -549,6 +557,7 @@ def normalize_harmonizr(
             harmonizR(data_as_input={r_literal(data_path)},
                       description_as_input={r_literal(desc_path)},
                       algorithm={r_literal(algorithm)},
+                      ComBat_mode={r_literal(int(combat_mode))},
                       output_file={r_literal(out_base)},
                       plot=FALSE, verbosity=0)
             """)
@@ -556,6 +565,15 @@ def normalize_harmonizr(
         if not os.path.exists(out_path):
             raise RuntimeError("21_harmonizr produced no output")
         result = pd.read_csv(out_path, sep="\t", index_col=0)
+        # HarmonizR signals "every block yielded nothing" by writing a three-byte file,
+        # not by raising. Returning that as a result gave an empty matrix downstream.
+        if result.empty:
+            raise RuntimeError(
+                "21_harmonizr produced an empty result. HarmonizR writes an empty file "
+                "rather than raising when its ComBat blocks yield nothing; "
+                f"combat_mode={combat_mode} may not suit this matrix (modes 1 and 3 "
+                "return nothing on data without missing values)."
+            )
 
     r_gc()
     return result.T.reindex(exp_df.index)
@@ -568,13 +586,16 @@ def normalize_dwd(
     batch_col: str,
     target_group: str | None = None,
     min_batch_size: int = 5,
+    expon: float = 1.0,
     **kw,
 ) -> pd.DataFrame:
     """
     DWD per-batch projection via DWDLargeR (Qing & Marron 2018).
 
-    Note ``genDWD`` is called without a ``penalty`` argument: DWDLargeR removed it, and
-    passing it made every batch fall through to the error handler uncorrected.
+    ``genDWD`` requires ``X``, ``y``, ``C`` and ``expon``, none of which have defaults.
+    An earlier version passed only ``X`` and ``y``, so every call raised and every batch
+    fell through the error handler — which printed a message and returned the *input*
+    unchanged. That is why the handler below now fails the run instead of reporting it.
 
     Returns
     -------
@@ -599,9 +620,10 @@ def normalize_dwd(
 
         _run_r(f"""
             library(DWDLargeR)
+            library(Matrix)
             exp_mat   <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1,
                                             check.names=FALSE))
-            ann_df    <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df    <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches   <- ann_df[colnames(exp_mat), "batch"]
             ref_label <- {r_literal(str(reference))}
 
@@ -609,6 +631,7 @@ def normalize_dwd(
             if (sum(ref_mask, na.rm=TRUE) == 0) ref_mask <- rep(TRUE, ncol(exp_mat))
             X_ref  <- exp_mat[, ref_mask, drop=FALSE]
             result <- exp_mat
+            failed <- character(0)
 
             for (b in setdiff(unique(batches), ref_label)) {{
                 batch_mask <- batches == b
@@ -617,14 +640,31 @@ def normalize_dwd(
                 X_combined <- cbind(X_ref, X_batch)
                 y <- c(rep(1, ncol(X_ref)), rep(-1, ncol(X_batch)))
                 tryCatch({{
-                    sol <- genDWD(X = X_combined, y = y)
-                    w   <- as.numeric(if (!is.null(sol$beta)) sol$beta else sol$w)
+                    # genDWD reaches into its argument with `@`, so a base matrix dies
+                    # with "no applicable method for `@`". It needs an S4 Matrix.
+                    X_sparse <- Matrix(X_combined, sparse = TRUE)
+                    C   <- penaltyParameter(X_sparse, y, expon = {r_literal(expon)})
+                    sol <- genDWD(X = X_sparse, y = y, C = C,
+                                  expon = {r_literal(expon)})
+                    # `w` is the separating direction, one entry per gene; `beta` is the
+                    # scalar intercept. Preferring beta gave a length-1 "direction" and a
+                    # uniform shift.
+                    w   <- as.numeric(sol$w)
                     shift <- mean(as.numeric(t(X_ref) %*% w)) -
                              mean(as.numeric(t(X_batch) %*% w))
                     result[, batch_mask] <- X_batch + shift * w
                 }}, error = function(e) {{
+                    failed <<- c(failed, b)
                     message("DWD failed for batch '", b, "': ", conditionMessage(e))
                 }})
+            }}
+
+            # Without this the function returns `result` with those columns still equal
+            # to the input, and a matrix that was never corrected passes every downstream
+            # check. A method that cannot run must not occupy a benchmark column.
+            if (length(failed)) {{
+                stop("27_dwd left ", length(failed), " batch(es) uncorrected: ",
+                     paste(failed, collapse=", "))
             }}
             write.csv(result, {r_literal(out_path)})
             """)
@@ -666,7 +706,7 @@ def normalize_npn(
         _run_r(f"""
             library(huge)
             exp_mat <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches <- as.character(ann_df[rownames(exp_mat), {r_literal(batch_col)}])
             result  <- exp_mat
             for (b in unique(batches)) {{
@@ -719,7 +759,7 @@ def normalize_combat_ref(
             library(sva)
             exp_mat <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1,
                                           check.names=FALSE))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches <- as.character(ann_df[colnames(exp_mat), {r_literal(batch_col)}])
             bio     <- as.character(ann_df[colnames(exp_mat), {r_literal(bio_col)}])
             mod     <- model.matrix(~ bio)
@@ -766,7 +806,7 @@ def normalize_ruv3prps(
         _run_r(f"""
             library(ruv)
             Y       <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches <- as.character(ann_df[rownames(Y), {r_literal(batch_col)}])
             bio     <- as.character(ann_df[rownames(Y), {r_literal(bio_col)}])
             cells   <- paste(bio, batches, sep="__")
@@ -839,7 +879,7 @@ def normalize_amdbnorm(
             library(AMDBNorm); library(DBNorm); library(reshape2)
             exp_mat   <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1,
                                             check.names=FALSE))
-            batches   <- read.csv({r_literal(ann_path)}, row.names=1)[
+            batches   <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)[
                              colnames(exp_mat), "batch"]
             ref_label <- {r_literal(str(reference))}
             ref_mat   <- exp_mat[, batches == ref_label, drop=FALSE]
@@ -897,7 +937,7 @@ def normalize_arsyn(
         _run_r(f"""
             library(NOISeq)
             exp_mat <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             factors <- data.frame(
                 Batch     = as.character(ann_df[colnames(exp_mat),
                                                 {r_literal(batch_col)}]),
@@ -931,6 +971,12 @@ def normalize_fabatch(
     ``$adj.data``. None of those exist in bapred: R raised "unused arguments", the
     surrounding ``tryCatch`` caught it, and the *uncorrected* matrix was written out and
     scored as though it had been corrected. The real signature is
+    Every annotation is read with ``check.names=FALSE``. Without it R renames any column
+    that is not a syntactic name — ``__target__`` becomes ``X__target__``, and so would a
+    user column called ``Cell type`` or ``1st_batch`` — and the subsequent lookup returns
+    an *empty* vector rather than raising, so the method fails much later with a message
+    about something else. Column names come from the user here and can be anything.
+
     ``fabatch(x, y, batch)`` returning ``$xadj``, and there is no fallback here — a
     failure is a failure.
 
@@ -979,7 +1025,7 @@ def normalize_fabatch(
             library(bapred)
             exp_mat <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1,
                                           check.names=FALSE))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches <- as.factor(ann_df[colnames(exp_mat), {r_literal(batch_col)}])
             y       <- as.factor(ann_df[colnames(exp_mat), "__target__"])
 
@@ -1027,7 +1073,7 @@ def normalize_harman(
         _run_r(f"""
             library(Harman)
             exp_mat <- as.matrix(read.csv({r_literal(exp_path)}, row.names=1))
-            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1)
+            ann_df  <- read.csv({r_literal(ann_path)}, row.names=1, check.names=FALSE)
             batches <- as.character(ann_df[colnames(exp_mat), {r_literal(batch_col)}])
             bio     <- as.character(ann_df[colnames(exp_mat), {r_literal(bio_col)}])
             pc      <- harman(exp_mat, expt=bio, batch=batches,

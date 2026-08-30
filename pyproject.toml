@@ -41,12 +41,21 @@ dependencies = [
 [project.optional-dependencies]
 # rpy2 cannot be built without R on the PATH, so it must never be a core dependency.
 r = ["rpy2>=3.5.5,<3.7"]      # ABI-bound to R 4.5.x
+# reComBat (30_recombat) is deliberately absent: it declares `sklearn` (the deprecated
+# PyPI stub, which only raises when built) and `python >=3.8,<3.11`, so pip refuses it
+# twice over and this extra could not be installed at all. Both are stale metadata — it
+# runs correctly on 3.11 — but a dependency that needs `--no-deps` cannot be expressed
+# in a dependency list. Install it by hand, or use the Docker image, which does this:
+#   pip install --no-deps --ignore-requires-python \
+#       "reComBat @ git+https://github.com/BorgwardtLab/reComBat@b02bd025c9671e75f37dc513d7f466b05448364d"
 methods = [
-    "harmonypy>=0.0.9,<2.0",
+    # <0.2, not <2.0: 0.2.0 hard-depends on torch, which brings 4.5 GB of CUDA into a
+    # CPU-only image. 0.1.0 has the same run_harmony API.
+    "harmonypy>=0.0.9,<0.2",
     "scanorama>=1.7",
     "combat>=0.3.3",
     "inmoose>=0.9.1",
-    "reComBat @ git+https://github.com/BorgwardtLab/reComBat",
+    "tqdm>=4.62.3",           # reComBat's one real dependency, installed --no-deps
 ]
 shambhala = ["qnorm>=0.4.1"]  # pulls numba + llvmlite (~56 MB)
 panels = ["openpyxl>=3.1", "xlrd>=2.0.1"]

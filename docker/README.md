@@ -61,7 +61,9 @@ because each aborted the build unconditionally — `FAbatch` (exists nowhere; th
 package is `bapred`), R `reComBat` (a Python package) and `exploBATCH` (dependency repo
 deleted). `DASC` is gone too, because `35_dasc` is not a registered method.
 
-Expected image size 6–9 GB.
+Image size **5.07 GB**, measured 2026-08-30 (`site-packages` 1124 MB, `/opt/R` ~1 GB).
+It was 12.8 GB until `harmonypy` was pinned below 0.2 — 0.2.0 pulls `torch`, and with it
+`nvidia/*` and `triton`, which is 4.5 GB of CUDA in a CPU-only image.
 
 ## Publishing
 
@@ -75,3 +77,11 @@ bash scripts/build_and_push_image.sh
 A new GHCR package is **private by default** and the pod then fails to pull with a 403 that
 reads like a missing image. Flip it to public once in the GitHub UI, then confirm
 anonymously with `docker logout ghcr.io && docker pull ghcr.io/nikit357/combobatch:latest`.
+
+**Build with a TLS-inspecting VPN disconnected.** Such a network re-signs HTTPS with a
+private root that the container does not trust, and the build fails at the first HTTPS
+fetch — the Dockerfile probes for this immediately after the apt layer and says so. The
+build needs public internet only, so disconnecting costs nothing; the push does not, since
+Docker Desktop's VM already trusts the corporate CA. This matters beyond convenience: the
+alternative, installing that root into the image, would publish an anchor for intercepting
+TLS to everyone who pulls a public MIT image. `BUILD_AND_PUSH.md` step 0b has the probe.

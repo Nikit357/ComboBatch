@@ -6,6 +6,10 @@ value-rendering is testable without one.
 
 from __future__ import annotations
 
+import sys
+import types
+from pathlib import Path
+
 import pytest
 
 from combobatch.methods import rinterop
@@ -29,6 +33,43 @@ class TestImportableWithoutR:
 
     def test_r_gc_is_a_no_op_without_r(self):
         rinterop.r_gc()
+
+
+class TestPackageAvailabilityDoesNotUseAnInvisibleResult:
+    """The check crashed inside the image for four builds, and could not crash here.
+
+    ``r_package_available`` returns early when rpy2 is absent, so on a laptop it never
+    reached the line that mattered: ``ro.r("requireNamespace(...)")`` returns the R value
+    *invisibly*, rpy2 3.6 maps that to ``None``, and ``None[0]`` raised TypeError — for
+    the installed package and the missing one alike. Only the image caught it, an hour of
+    build at a time. These two guards run anywhere.
+    """
+
+    def test_the_expression_that_cannot_work_is_gone(self):
+        # Comments explaining why it is gone must not count as its return.
+        source = "\n".join(
+            line
+            for line in Path(rinterop.__file__).read_text().splitlines()
+            if not line.lstrip().startswith("#")
+        )
+        assert "requireNamespace" not in source, (
+            "requireNamespace returns invisibly, so rpy2 hands back None and there is no "
+            "answer to read — use rpy2.robjects.packages.isinstalled instead"
+        )
+
+    @pytest.mark.parametrize("installed", [True, False])
+    def test_the_answer_is_a_bool_either_way(self, monkeypatch, installed):
+        """Both outcomes must survive the round trip, not just the happy one."""
+        packages = types.ModuleType("rpy2.robjects.packages")
+        packages.isinstalled = lambda name: installed
+        monkeypatch.setitem(sys.modules, "rpy2.robjects.packages", packages)
+        monkeypatch.setattr(rinterop, "r_available", lambda: True)
+        rinterop.r_package_available.cache_clear()
+
+        try:
+            assert rinterop.r_package_available("limma") is installed
+        finally:
+            rinterop.r_package_available.cache_clear()
 
 
 class TestRLiteral:

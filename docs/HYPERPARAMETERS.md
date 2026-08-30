@@ -219,6 +219,7 @@ Voss et al. 2022, Bioinformatics (HarmonizR).
 | Parameter | Type | Default | Bounds | Meaning | R argument |
 |---|---|---|---|---|---|
 | `algorithm` | str | `'ComBat'` | one of `ComBat`, `limma` | Correction applied within each NA-consistent block. | `harmonizR(algorithm=)` |
+| `combat_mode` | int | `2` | one of `1`, `2`, `3`, `4` | HarmonizR's ComBat parameter set: 1 par.prior/scale, 2 par.prior/mean-only, 3 non-parametric/scale, 4 non-parametric/mean-only. Modes 1 and 3 write an empty result on data without missing values, which is why the default is 2 rather than HarmonizR's own 1. | `harmonizR(ComBat_mode=)` |
 
 ### `27_dwd`
 
@@ -228,6 +229,7 @@ Qing & Marron 2018 (DWDLargeR).
 |---|---|---|---|---|---|
 | `target_group` | str | `None` | — | Reference batch to normalize toward. Defaults to the largest batch, resolved at run time; set --reference-batch to choose explicitly. | — |
 | `min_batch_size` | int | `5` | min 2 | Batches smaller than this are left uncorrected; the DWD direction is unstable below it. | — |
+| `expon` | float | `1.0` | min 0.1 | Exponent of the DWD generalized distance. 1.0 is standard DWD; DWDLargeR requires it explicitly, with no default of its own. | — |
 
 ### `28_npn`
 

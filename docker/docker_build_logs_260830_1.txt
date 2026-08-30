@@ -1,0 +1,225 @@
+user890@BGA-0767 ComboBatch % bash scripts/smoke_test.sh
+==> building combobatch:test (linux/amd64)
+[+] Building 526.8s (18/24)                                                                                                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                                                            0.0s
+ => => transferring dockerfile: 9.82kB                                                                                                                                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim-bookworm                                                                                                                                    0.1s
+ => [internal] load .dockerignore                                                                                                                                                                               0.0s
+ => => transferring context: 393B                                                                                                                                                                               0.0s
+ => [ 1/20] FROM docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                            0.0s
+ => => resolve docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                              0.0s
+ => [internal] load build context                                                                                                                                                                               0.0s
+ => => transferring context: 15.23kB                                                                                                                                                                            0.0s
+ => CACHED [ 2/20] RUN apt-get update && apt-get install -y --no-install-recommends         ca-certificates curl wget gnupg2 git         build-essential gfortran cmake pkg-config         libcurl4-openssl-de  0.0s
+ => CACHED [ 3/20] RUN set -eu;     rc=0; curl -sS -o /dev/null --max-time 30 https://cdn.posit.co/ || rc=$?;     if [ "$rc" -eq 60 ]; then         echo "----------------------------------------------------  0.0s
+ => CACHED [ 4/20] RUN set -eu;     arch="$(dpkg --print-architecture)";     [ "$arch" = "amd64" ]         || { echo "the pinned R build is published for amd64 only, this is ${arch}; rebuild with --platform  0.0s
+ => CACHED [ 5/20] COPY docker/install_r_packages.R /tmp/install_r_packages.R                                                                                                                                   0.0s
+ => CACHED [ 6/20] RUN Rscript /tmp/install_r_packages.R --stage prereq                                                                                                                                         0.0s
+ => CACHED [ 7/20] RUN Rscript /tmp/install_r_packages.R --stage cran                                                                                                                                           0.0s
+ => CACHED [ 8/20] RUN Rscript /tmp/install_r_packages.R --stage bapred                                                                                                                                         0.0s
+ => CACHED [ 9/20] RUN Rscript /tmp/install_r_packages.R --stage bioc                                                                                                                                           0.0s
+ => [10/20] RUN Rscript /tmp/install_r_packages.R --stage github                                                                                                                                              166.8s
+ => [11/20] RUN Rscript /tmp/install_r_packages.R --stage verify     && rm -f /tmp/install_r_packages.R                                                                                                        11.1s 
+ => [12/20] RUN apt-get update && apt-get install -y --no-install-recommends         octave octave-statistics     && rm -rf /var/lib/apt/lists/*     && printf '%s\n'         '#!/bin/bash'         'args=()  171.1s 
+ => [13/20] COPY requirements.txt /tmp/requirements.txt                                                                                                                                                         0.0s 
+ => ERROR [14/20] RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt                                                                                                      177.6s 
+------                                                                                                                                                                                                               
+ > [14/20] RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt:                                                                                                                   
+1.353 Collecting git+https://github.com/BorgwardtLab/reComBat (from -r /tmp/requirements.txt (line 33))                                                                                                              
+1.355   Cloning https://github.com/BorgwardtLab/reComBat to /tmp/pip-req-build-hllo58m0                                                                                                                              
+1.377   Running command git clone --filter=blob:none --quiet https://github.com/BorgwardtLab/reComBat /tmp/pip-req-build-hllo58m0                                                                                    
+53.52   Resolved https://github.com/BorgwardtLab/reComBat to commit b02bd025c9671e75f37dc513d7f466b05448364d                                                                                                         
+53.55   Installing build dependencies: started
+56.38   Installing build dependencies: finished with status 'done'
+56.38   Getting requirements to build wheel: started
+56.54   Getting requirements to build wheel: finished with status 'done'
+56.54   Preparing metadata (pyproject.toml): started
+56.75   Preparing metadata (pyproject.toml): finished with status 'done'
+57.72 Collecting numpy<2.0,>=1.24 (from -r /tmp/requirements.txt (line 9))
+58.01   Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+58.10      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 kB 810.7 kB/s eta 0:00:00
+58.70 Collecting pandas<2.0,>=1.5 (from -r /tmp/requirements.txt (line 10))
+58.92   Downloading pandas-1.5.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+59.27 Collecting scikit-learn<1.6,>=1.3 (from -r /tmp/requirements.txt (line 12))
+59.35   Downloading scikit_learn-1.5.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+59.87 Collecting scipy>=1.9 (from -r /tmp/requirements.txt (line 13))
+59.95   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+60.03      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 973.3 kB/s eta 0:00:00
+60.31 Collecting statsmodels>=0.14 (from -r /tmp/requirements.txt (line 14))
+60.40   Downloading statsmodels-0.15.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.6 kB)
+60.53 Collecting umap-learn>=0.5 (from -r /tmp/requirements.txt (line 15))
+60.62   Downloading umap_learn-0.5.12-py3-none-any.whl.metadata (24 kB)
+61.03 Collecting psutil>=5.9 (from -r /tmp/requirements.txt (line 16))
+61.12   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+61.37 Collecting pyyaml>=6.0 (from -r /tmp/requirements.txt (line 17))
+61.46   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+62.73 Collecting boto3>=1.28.17 (from -r /tmp/requirements.txt (line 20))
+62.83   Downloading boto3-1.43.83-py3-none-any.whl.metadata (6.6 kB)
+64.08 Collecting botocore>=1.31.17 (from -r /tmp/requirements.txt (line 21))
+64.17   Downloading botocore-1.43.83-py3-none-any.whl.metadata (5.6 kB)
+65.54 Collecting awscli>=1.44 (from -r /tmp/requirements.txt (line 22))
+65.63   Downloading awscli-1.46.1-py3-none-any.whl.metadata (12 kB)
+65.83 Collecting rpy2<3.7,>=3.5.5 (from -r /tmp/requirements.txt (line 25))
+65.91   Downloading rpy2-3.6.7-py3-none-any.whl.metadata (5.5 kB)
+66.14 Collecting harmonypy<2.0,>=0.0.9 (from -r /tmp/requirements.txt (line 29))
+66.34   Downloading harmonypy-0.2.0-py3-none-any.whl.metadata (3.5 kB)
+66.56 Collecting scanorama>=1.7 (from -r /tmp/requirements.txt (line 30))
+66.76   Downloading scanorama-1.7.4-py3-none-any.whl.metadata (525 bytes)
+66.98 Collecting combat>=0.3.3 (from -r /tmp/requirements.txt (line 31))
+67.22   Downloading combat-0.3.3.tar.gz (34 kB)
+67.28   Preparing metadata (setup.py): started
+67.69   Preparing metadata (setup.py): finished with status 'done'
+67.93 Collecting inmoose>=0.9.1 (from -r /tmp/requirements.txt (line 32))
+68.13   Downloading inmoose-0.9.1.tar.gz (7.3 MB)
+77.37      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.3/7.3 MB 789.7 kB/s eta 0:00:00
+77.61   Installing build dependencies: started
+140.3   Installing build dependencies: still running...
+146.4   Installing build dependencies: finished with status 'done'
+146.4   Getting requirements to build wheel: started
+146.9   Getting requirements to build wheel: finished with status 'done'
+146.9   Preparing metadata (pyproject.toml): started
+147.4   Preparing metadata (pyproject.toml): finished with status 'done'
+147.6 Collecting qnorm>=0.4.1 (from -r /tmp/requirements.txt (line 37))
+147.9   Downloading qnorm-0.9.0-py3-none-any.whl.metadata (12 kB)
+148.1 Collecting pytest>=7.4 (from -r /tmp/requirements.txt (line 43))
+148.2   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+148.3 Collecting pytest-timeout>=2.1 (from -r /tmp/requirements.txt (line 44))
+148.4   Downloading pytest_timeout-2.4.0-py3-none-any.whl.metadata (20 kB)
+149.2 Collecting moto>=4.2 (from moto[s3]>=4.2->-r /tmp/requirements.txt (line 45))
+149.3   Downloading moto-5.2.3-py3-none-any.whl.metadata (12 kB)
+149.5 Collecting openpyxl>=3.1 (from -r /tmp/requirements.txt (line 48))
+149.5   Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+149.7 Collecting xlrd>=2.0.1 (from -r /tmp/requirements.txt (line 49))
+149.8   Downloading xlrd-2.0.2-py2.py3-none-any.whl.metadata (3.5 kB)
+150.0 Collecting python-dateutil>=2.8.1 (from pandas<2.0,>=1.5->-r /tmp/requirements.txt (line 10))
+150.0   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+150.3 Collecting pytz>=2020.1 (from pandas<2.0,>=1.5->-r /tmp/requirements.txt (line 10))
+150.4   Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+150.7 Collecting joblib>=1.2.0 (from scikit-learn<1.6,>=1.3->-r /tmp/requirements.txt (line 12))
+150.8   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+150.9 Collecting threadpoolctl>=3.1.0 (from scikit-learn<1.6,>=1.3->-r /tmp/requirements.txt (line 12))
+151.0   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+151.2 Collecting patsy>=0.5.6 (from statsmodels>=0.14->-r /tmp/requirements.txt (line 14))
+151.3   Downloading patsy-1.0.3-py2.py3-none-any.whl.metadata (3.7 kB)
+151.3 Requirement already satisfied: packaging>=21.3 in /usr/local/lib/python3.11/site-packages (from statsmodels>=0.14->-r /tmp/requirements.txt (line 14)) (26.3)
+151.5 Collecting formulaic>=1.1.0 (from statsmodels>=0.14->-r /tmp/requirements.txt (line 14))
+151.5   Downloading formulaic-1.2.2-py3-none-any.whl.metadata (7.0 kB)
+151.6 INFO: pip is looking at multiple versions of umap-learn to determine which version is compatible with other requirements. This could take a while.
+151.6 Collecting umap-learn>=0.5 (from -r /tmp/requirements.txt (line 15))
+151.7   Downloading umap_learn-0.5.11-py3-none-any.whl.metadata (26 kB)
+151.8   Downloading umap_learn-0.5.9.post2-py3-none-any.whl.metadata (25 kB)
+152.0   Downloading umap_learn-0.5.8-py3-none-any.whl.metadata (23 kB)
+152.1   Downloading umap_learn-0.5.7-py3-none-any.whl.metadata (21 kB)
+152.7 Collecting numba>=0.51.2 (from umap-learn>=0.5->-r /tmp/requirements.txt (line 15))
+152.8   Downloading numba-0.67.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
+153.0 Collecting pynndescent>=0.5 (from umap-learn>=0.5->-r /tmp/requirements.txt (line 15))
+153.1   Downloading pynndescent-0.6.0-py3-none-any.whl.metadata (6.9 kB)
+153.3 Collecting tqdm (from umap-learn>=0.5->-r /tmp/requirements.txt (line 15))
+153.4   Downloading tqdm-4.70.0-py3-none-any.whl.metadata (57 kB)
+153.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.3/57.3 kB 1.0 MB/s eta 0:00:00
+153.7 Collecting jmespath<2.0.0,>=0.7.1 (from boto3>=1.28.17->-r /tmp/requirements.txt (line 20))
+153.8   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+153.9 Collecting s3transfer<0.20.0,>=0.19.0 (from boto3>=1.28.17->-r /tmp/requirements.txt (line 20))
+154.0   Downloading s3transfer-0.19.2-py3-none-any.whl.metadata (1.7 kB)
+154.2 Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore>=1.31.17->-r /tmp/requirements.txt (line 21))
+154.3   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+154.4 Collecting docutils<=0.19,>=0.18.1 (from awscli>=1.44->-r /tmp/requirements.txt (line 22))
+154.5   Downloading docutils-0.19-py3-none-any.whl.metadata (2.7 kB)
+154.7 Collecting colorama<0.4.7,>=0.2.5 (from awscli>=1.44->-r /tmp/requirements.txt (line 22))
+154.7   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+154.9 Collecting rsa<4.8,>=3.1.2 (from awscli>=1.44->-r /tmp/requirements.txt (line 22))
+155.0   Downloading rsa-4.7.2-py3-none-any.whl.metadata (3.6 kB)
+155.1 Collecting rpy2-rinterface>=3.6.6 (from rpy2<3.7,>=3.5.5->-r /tmp/requirements.txt (line 25))
+155.3   Downloading rpy2_rinterface-3.6.6.tar.gz (81 kB)
+155.4      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.4/81.4 kB 989.5 kB/s eta 0:00:00
+155.4   Installing build dependencies: started
+160.9   Installing build dependencies: finished with status 'done'
+160.9   Getting requirements to build wheel: started
+164.9   Getting requirements to build wheel: finished with status 'done'
+164.9   Preparing metadata (pyproject.toml): started
+168.8   Preparing metadata (pyproject.toml): finished with status 'done'
+168.9 Collecting rpy2-robjects>=3.6.5 (from rpy2<3.7,>=3.5.5->-r /tmp/requirements.txt (line 25))
+169.1   Downloading rpy2_robjects-3.6.5-py3-none-any.whl.metadata (3.2 kB)
+169.4 Collecting torch (from harmonypy<2.0,>=0.0.9->-r /tmp/requirements.txt (line 29))
+169.5   Downloading torch-2.13.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (38 kB)
+169.8 Collecting annoy>=1.11.5 (from scanorama>=1.7->-r /tmp/requirements.txt (line 30))
+169.9   Downloading annoy-1.17.3.tar.gz (647 kB)
+170.4      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 647.5/647.5 kB 1.2 MB/s eta 0:00:00
+170.5   Preparing metadata (setup.py): started
+172.2   Preparing metadata (setup.py): finished with status 'done'
+172.4 Collecting fbpca>=1.0 (from scanorama>=1.7->-r /tmp/requirements.txt (line 30))
+172.5   Downloading fbpca-1.0.tar.gz (11 kB)
+172.5   Preparing metadata (setup.py): started
+172.8   Preparing metadata (setup.py): finished with status 'done'
+173.0 Collecting geosketch>=1.0 (from scanorama>=1.7->-r /tmp/requirements.txt (line 30))
+173.2   Downloading geosketch-1.3-py3-none-any.whl.metadata (394 bytes)
+173.3 Collecting intervaltree>=3.1.0 (from scanorama>=1.7->-r /tmp/requirements.txt (line 30))
+173.4   Downloading intervaltree-3.2.1-py2.py3-none-any.whl.metadata (12 kB)
+173.9 Collecting matplotlib>=2.0.2 (from scanorama>=1.7->-r /tmp/requirements.txt (line 30))
+174.0   Downloading matplotlib-3.11.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+174.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.3/80.3 kB 1.4 MB/s eta 0:00:00
+174.3 Collecting mpmath>=1.1.0 (from combat>=0.3.3->-r /tmp/requirements.txt (line 31))
+174.4   Downloading mpmath-1.4.1-py3-none-any.whl.metadata (9.1 kB)
+174.7 Collecting anndata (from inmoose>=0.9.1->-r /tmp/requirements.txt (line 32))
+174.8   Downloading anndata-0.12.19-py3-none-any.whl.metadata (10 kB)
+175.1 Collecting fastcluster (from inmoose>=0.9.1->-r /tmp/requirements.txt (line 32))
+175.3   Downloading fastcluster-1.3.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.7 kB)
+175.4 Collecting seaborn (from inmoose>=0.9.1->-r /tmp/requirements.txt (line 32))
+175.5   Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+175.7 Collecting jinja2 (from inmoose>=0.9.1->-r /tmp/requirements.txt (line 32))
+175.8   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+175.9 Collecting fire<0.5.0,>=0.4.0 (from reComBat==0.1.4->-r /tmp/requirements.txt (line 33))
+175.9   Downloading fire-0.4.0.tar.gz (87 kB)
+176.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.7/87.7 kB 963.4 kB/s eta 0:00:00
+176.1   Preparing metadata (setup.py): started
+176.3   Preparing metadata (setup.py): finished with status 'done'
+176.4 Collecting sklearn<0.1,>=0.0 (from reComBat==0.1.4->-r /tmp/requirements.txt (line 33))
+176.5   Downloading sklearn-0.0.post12.tar.gz (2.6 kB)
+176.5   Preparing metadata (setup.py): started
+176.7   Preparing metadata (setup.py): finished with status 'error'
+176.7   error: subprocess-exited-with-error
+176.7   
+176.7   × python setup.py egg_info did not run successfully.
+176.7   │ exit code: 1
+176.7   ╰─> [15 lines of output]
+176.7       The 'sklearn' PyPI package is deprecated, use 'scikit-learn'
+176.7       rather than 'sklearn' for pip commands.
+176.7       
+176.7       Here is how to fix this error in the main use cases:
+176.7       - use 'pip install scikit-learn' rather than 'pip install sklearn'
+176.7       - replace 'sklearn' by 'scikit-learn' in your pip requirements files
+176.7         (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
+176.7       - if the 'sklearn' package is used by one of your dependencies,
+176.7         it would be great if you take some time to track which package uses
+176.7         'sklearn' instead of 'scikit-learn' and report it to their issue tracker
+176.7       - as a last resort, set the environment variable
+176.7         SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
+176.7       
+176.7       More information is available at
+176.7       https://github.com/scikit-learn/sklearn-pypi-package
+176.7       [end of output]
+176.7   
+176.7   note: This error originates from a subprocess, and is likely not a problem with pip.
+176.7 error: metadata-generation-failed
+176.7 
+176.7 × Encountered error while generating package metadata.
+176.7 ╰─> See above for output.
+176.7 
+176.7 note: This is an issue with the package mentioned above, not pip.
+176.7 hint: See above for details.
+177.1 
+177.1 [notice] A new release of pip is available: 24.0 -> 26.2.1
+177.1 [notice] To update, run: pip install --upgrade pip
+------
+Dockerfile:153
+--------------------
+ 151 |     # why both git and network access are required at build time.
+ 152 |     COPY requirements.txt /tmp/requirements.txt
+ 153 | >>> RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt
+ 154 |     
+ 155 |     # --- 6. combobatch itself ----------------------------------------------------------
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt" did not complete successfully: exit code: 1
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"

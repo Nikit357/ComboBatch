@@ -336,7 +336,11 @@ METHOD_REGISTRY: dict[str, MethodSpec] = {
         "high",
         citation="Thompson et al. 2016, BMC Bioinformatics (TDM).",
         requires_r=True,
-        r_packages=("TDM",),
+        # binr is TDM's undeclared run-time dependency. TDM's own `load_it()` helper
+        # calls BiocManager::install() for anything missing *at call time*, which
+        # prompts, reads EOF in a container and dies with "argument is of length zero".
+        # Declaring it here installs it at build time and keeps the method offline.
+        r_packages=("TDM", "binr"),
         uses_reference_batch=True,
         hyperparams={
             "target_group": _TARGET_GROUP,
@@ -487,7 +491,18 @@ METHOD_REGISTRY: dict[str, MethodSpec] = {
                 "Correction applied within each NA-consistent block.",
                 choices=("ComBat", "limma"),
                 r_argument="harmonizR(algorithm=)",
-            )
+            ),
+            "combat_mode": HyperParam(
+                "combat_mode",
+                int,
+                2,
+                "HarmonizR's ComBat parameter set: 1 par.prior/scale, 2 par.prior/"
+                "mean-only, 3 non-parametric/scale, 4 non-parametric/mean-only. "
+                "Modes 1 and 3 write an empty result on data without missing values, "
+                "which is why the default is 2 rather than HarmonizR's own 1.",
+                choices=(1, 2, 3, 4),
+                r_argument="harmonizR(ComBat_mode=)",
+            ),
         },
     ),
     "27_dwd": _spec(
@@ -507,6 +522,14 @@ METHOD_REGISTRY: dict[str, MethodSpec] = {
                 "Batches smaller than this are left uncorrected; the DWD direction is "
                 "unstable below it.",
                 minimum=2,
+            ),
+            "expon": HyperParam(
+                "expon",
+                float,
+                1.0,
+                "Exponent of the DWD generalized distance. 1.0 is standard DWD; "
+                "DWDLargeR requires it explicitly, with no default of its own.",
+                minimum=0.1,
             ),
         },
     ),

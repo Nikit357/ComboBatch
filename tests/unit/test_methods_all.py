@@ -8,6 +8,8 @@ Docker image `tests/integration/test_methods_all_backends.py` asserts that nothi
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 import pytest
 
@@ -137,3 +139,45 @@ class TestResolveReferenceBatch:
         _, ann = make_expression()
         with pytest.raises(ValueError, match="not a value of"):
             resolve_reference_batch(ann, "batch", "NoSuchBatch")
+
+
+class TestDefaultsThatWouldReturnNothing:
+    """Two methods shipped defaults that produce an empty or NaN result in silence."""
+
+    def test_harmonizr_does_not_default_to_a_mode_that_returns_nothing(self):
+        """HarmonizR's own default, mode 1, writes a three-byte file and exits 0.
+
+        Modes 1 and 3 are the `mean.only = FALSE` pair; both return nothing on a matrix
+        without missing values, measured on exponential and normal data.
+        """
+        spec = METHOD_REGISTRY["21_harmonizr"]
+        mode = spec.hyperparams["combat_mode"]
+        assert mode.default in (2, 4), (
+            f"combat_mode defaults to {mode.default}, which returns an empty matrix; "
+            f"only modes 2 and 4 produce output"
+        )
+        assert set(mode.choices) == {1, 2, 3, 4}
+
+    def test_shambhala_refuses_a_nan_result(self):
+        """It degrades to NaN on a narrow matrix rather than failing.
+
+        At 80 samples: 200 genes gives 100% NaN, 400 gives 15%, 800 gives none. The
+        partial case is the dangerous one — nothing downstream would notice.
+        """
+        from combobatch.methods import shambhala_method
+
+        assert shambhala_method._MAX_NAN_FRACTION <= 0.01
+        source = Path(shambhala_method.__file__).read_text()
+        assert "nan_fraction" in source and "raise RuntimeError" in source
+
+    def test_the_selftest_reports_rpy2_from_distribution_metadata(self):
+        """`rpy2.__version__` is undefined in 3.6, and reported a working install as absent."""
+        from combobatch.cli import selftest_cmd
+
+        # Comments naming the trap must not count as falling into it.
+        source = Path(selftest_cmd.__file__).read_text()
+        code = "\n".join(
+            line for line in source.splitlines() if not line.lstrip().startswith("#")
+        )
+        assert "rpy2.__version__" not in code
+        assert "importlib.metadata" in code

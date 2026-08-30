@@ -1,0 +1,357 @@
+user890@BGA-0767 ComboBatch % bash scripts/smoke_test.sh
+==> building combobatch:test (linux/amd64)
+[+] Building 3990.4s (26/26) FINISHED                                                                                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                                                            0.0s
+ => => transferring dockerfile: 10.89kB                                                                                                                                                                         0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim-bookworm                                                                                                                                    0.3s
+ => [internal] load .dockerignore                                                                                                                                                                               0.0s
+ => => transferring context: 393B                                                                                                                                                                               0.0s
+ => [internal] load build context                                                                                                                                                                               0.0s
+ => => transferring context: 239.93kB                                                                                                                                                                           0.0s
+ => [ 1/21] FROM docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                            0.0s
+ => => resolve docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                              0.0s
+ => CACHED [ 2/21] RUN apt-get update && apt-get install -y --no-install-recommends         ca-certificates curl wget gnupg2 git         build-essential gfortran cmake pkg-config         libcurl4-openssl-de  0.0s
+ => CACHED [ 3/21] RUN set -eu;     rc=0; curl -sS -o /dev/null --max-time 30 https://cdn.posit.co/ || rc=$?;     if [ "$rc" -eq 60 ]; then         echo "----------------------------------------------------  0.0s
+ => CACHED [ 4/21] RUN set -eu;     arch="$(dpkg --print-architecture)";     [ "$arch" = "amd64" ]         || { echo "the pinned R build is published for amd64 only, this is ${arch}; rebuild with --platform  0.0s
+ => CACHED [ 5/21] COPY docker/install_r_packages.R /tmp/install_r_packages.R                                                                                                                                   0.0s
+ => CACHED [ 6/21] RUN Rscript /tmp/install_r_packages.R --stage prereq                                                                                                                                         0.0s
+ => CACHED [ 7/21] RUN Rscript /tmp/install_r_packages.R --stage cran                                                                                                                                           0.0s
+ => CACHED [ 8/21] RUN Rscript /tmp/install_r_packages.R --stage bapred                                                                                                                                         0.0s
+ => CACHED [ 9/21] RUN Rscript /tmp/install_r_packages.R --stage bioc                                                                                                                                           0.0s
+ => CACHED [10/21] RUN Rscript /tmp/install_r_packages.R --stage github                                                                                                                                         0.0s
+ => CACHED [11/21] RUN Rscript /tmp/install_r_packages.R --stage verify     && rm -f /tmp/install_r_packages.R                                                                                                  0.0s
+ => CACHED [12/21] RUN apt-get update && apt-get install -y --no-install-recommends         octave octave-statistics     && rm -rf /var/lib/apt/lists/*     && printf '%s\n'         '#!/bin/bash'         'ar  0.0s
+ => [13/21] COPY requirements.txt /tmp/requirements.txt                                                                                                                                                         0.0s
+ => [14/21] RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt                                                                                                           3743.0s
+ => [15/21] RUN pip install --no-cache-dir --no-deps --ignore-requires-python         "reComBat @ git+https://github.com/BorgwardtLab/reComBat@b02bd025c9671e75f37dc513d7f466b05448364d"     && python -c "fr  67.5s 
+ => [16/21] WORKDIR /app                                                                                                                                                                                        0.0s 
+ => [17/21] COPY . /app                                                                                                                                                                                         0.2s 
+ => [18/21] RUN pip install --no-cache-dir --no-deps .     && combobatch --version                                                                                                                              9.8s 
+ => [19/21] RUN printf '%s\n'         'OMP_NUM_THREADS=1'         'OPENBLAS_NUM_THREADS=1'         'MKL_NUM_THREADS=1'         'NUMEXPR_NUM_THREADS=1'         'VECLIB_MAXIMUM_THREADS=1'         'COMBOBATCH_  0.2s 
+ => [20/21] COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh                                                                                                                                              0.0s 
+ => [21/21] RUN chmod +x /usr/local/bin/entrypoint.sh                                                                                                                                                           0.2s 
+ => exporting to image                                                                                                                                                                                        168.8s 
+ => => exporting layers                                                                                                                                                                                       168.6s 
+ => => exporting manifest sha256:81233aacc4fd18a6e2faeb342bb107bc93662581fe1a7fb76dc0d2e84459cc60                                                                                                               0.0s 
+ => => exporting config sha256:1a0519f7e9a72ad8102f7dcfe400a6639c090b78ab66b93b7a866ebd0d6abed8                                                                                                                 0.0s
+ => => exporting attestation manifest sha256:a1a21a54b41b2096be2ccf3fe408fccbb81a847d9edea4343eef7de2c3758294                                                                                                   0.0s
+ => => exporting manifest list sha256:c532cfe5e165b94eb51019bf4f2aee711340c84b8fd6339b4ebc9689d422deb7                                                                                                          0.0s
+ => => naming to docker.io/library/combobatch:test                                                                                                                                                              0.0s
+
+==> R reports 4.5.x through rpy2
+R version 4.5.3 (2026-03-11)
+OK: R reports 4.5.x through rpy2
+
+==> R dependencies of the metrics and fabatch paths load
+Loading required package: ggplot2
+Loading required package: limma
+Loading required package: BiocParallel
+
+Attaching package: ‘variancePartition’
+
+The following objects are masked from ‘package:limma’:
+
+    eBayes, topTable
+
+Loading required package: glmnet
+Loading required package: Matrix
+Loaded glmnet 5.0
+Loading required package: lme4
+Loading required package: MASS
+Loading required package: sva
+Loading required package: mgcv
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:lme4’:
+
+    lmList
+
+This is mgcv 1.9-4. For overview type '?mgcv'.
+Loading required package: genefilter
+
+Attaching package: ‘genefilter’
+
+The following object is masked from ‘package:MASS’:
+
+    area
+
+Loading required package: affyPLM
+Loading required package: BiocGenerics
+Loading required package: generics
+
+Attaching package: ‘generics’
+
+The following object is masked from ‘package:lme4’:
+
+    refit
+
+The following objects are masked from ‘package:base’:
+
+    as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+    setequal, union
+
+
+Attaching package: ‘BiocGenerics’
+
+The following object is masked from ‘package:limma’:
+
+    plotMA
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+    unsplit, which.max, which.min
+
+Loading required package: affy
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: gcrma
+Loading required package: preprocessCore
+R deps OK
+OK: R dependencies of the metrics and fabatch paths load
+
+==> Octave is present
+octave: X11 DISPLAY environment variable not set
+octave: disabling GUI features
+GNU Octave, version 7.3.0
+Copyright (C) 1993-2022 The Octave Project Developers.
+This is free software; see the source code for copying conditions.
+There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
+
+Octave was configured for "x86_64-pc-linux-gnu".
+
+Additional information about Octave is available at https://www.octave.org.
+
+Please contribute if you find this software useful.
+For more information, visit https://www.octave.org/get-involved.html
+
+Read https://www.octave.org/bugs.html to learn how to submit bug reports.
+OK: Octave is present
+
+==> the matlab wrapper strips MATLAB-only flags
+octave: X11 DISPLAY environment variable not set
+octave: disabling GUI features
+wrapper ok
+error: ignoring const execution_exception& while preparing to exit
+OK: the matlab wrapper strips MATLAB-only flags
+
+==> the three registries load
+Traceback (most recent call last):
+  File "/usr/local/bin/combobatch", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/main.py", line 279, in main
+    return _list_command(args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/main.py", line 223, in _list_command
+    rows = _registry_rows(registry, available_only=args.available_only)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/main.py", line 112, in _registry_rows
+    missing = spec.missing_backends()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/methods/base.py", line 125, in missing_backends
+    missing.extend(
+  File "/usr/local/lib/python3.11/site-packages/combobatch/methods/base.py", line 128, in <genexpr>
+    if not rinterop.r_package_available(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/methods/rinterop.py", line 46, in r_package_available
+    return bool(result[0])
+                ~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+FAIL: the three registries load
+
+==> metric groups load without a panel file
+Metric groups (14)
+
+  E  Data quality  [fast, default]
+     Shape, batch balance, zero inflation, expression percentiles and per-cohort bimodality.
+     sentinel: n_samples
+
+  K  NA retention  [fast, default]
+     Genes and samples free of missing values after harmonization — the cheapest way to catch a method that silently destroyed the matrix.
+     sentinel: n_genes_noNA
+
+  A  PCA variance decomposition  [moderate, default]
+     How much of each principal component's variance each annotation column explains, plus a permutation-tested separability score.
+     sentinel: r2_{batch}
+
+  J  Per-PC variance  [fast, default]
+     Share of total variance carried by each leading component.
+     sentinel: pct_var_pc1
+
+  B  Neighbourhood integration  [slow, default]
+     kBET, iLISI/cLISI, silhouettes and cell mixing: whether batches blend locally while biology stays apart.
+     sentinel: kbet_acceptance_rate_{batch}
+
+  C  Embedding structure  [slow]
+     Centroid dispersion and local entropy of batch labels in UMAP and t-SNE space.
+     sentinel: umap_centroid_disp_{batch}
+
+  D  Distribution comparison  [slow]
+     Pairwise Kolmogorov-Smirnov distances between groups, cohort effects within a batch, and per-gene coefficient of variation.
+     sentinel: ks_mean_D_{batch}
+
+  G  Graph connectivity  [moderate]
+     Whether each biology group forms a single connected kNN component rather than one island per batch.
+     sentinel: graph_connectivity_{bio}
+
+  H  Pairwise distances  [moderate]
+     Average within-group against between-group Euclidean distance in full gene space.
+     sentinel: dist_ratio_{batch}
+
+  I  WaterMelon score  [very_slow]
+     Information a Ward dendrogram recovers about each label, against a permutation null.
+     sentinel: wm_{batch}
+
+  L  Profile preservation  [moderate, needs reference, uses panel]
+     Within-cohort Spearman correlation of each gene before and after harmonization. Saturates at ~1.0 for any per-batch monotone transform, so read it as a guard rail, not a ranking.
+     sentinel: mk_rho_mean_all_genes
+
+  M  Cross-batch rank agreement  [moderate, uses panel]
+     Whether same-biology samples agree across batches more than different-biology ones. The margin is the discriminative signal.
+     sentinel: xb_rank_agree
+
+  N  Predictive validation  [very_slow]
+     Leave-one-batch-out classification of biology, against a label permutation control.
+     sentinel: pv_lobo3_f1_macro_mean
+
+  F  Variance partition  [very_slow]
+     Per-gene variance attributed to each annotation column by a mixed model, via R's variancePartition.
+     sentinel: vp_median_{batch}
+
+OK: metric groups load without a panel file
+
+==> every backend is present - no method or group may skip
+FF.                                                                      [100%]
+=================================== FAILURES ===================================
+________________________ test_every_method_is_available ________________________
+
+>   ???
+
+/Users/user890/Desktop/ComboBatch/tests/integration/test_methods_all_backends.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/user890/Desktop/ComboBatch/tests/integration/test_methods_all_backends.py:37: in <dictcomp>
+    ???
+/usr/local/lib/python3.11/site-packages/combobatch/methods/base.py:141: in is_available
+    return not self.missing_backends()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.11/site-packages/combobatch/methods/base.py:125: in missing_backends
+    missing.extend(
+/usr/local/lib/python3.11/site-packages/combobatch/methods/base.py:128: in <genexpr>
+    if not rinterop.r_package_available(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'limma'
+
+    @functools.lru_cache(maxsize=None)
+    def r_package_available(name: str) -> bool:
+        """Report whether an R package is installed, without attaching it."""
+        if not r_available():
+            return False
+        import rpy2.robjects as ro
+    
+        try:
+            result = ro.r(f"requireNamespace('{name}', quietly=TRUE)")
+        except Exception:
+            return False
+>       return bool(result[0])
+                    ^^^^^^^^^
+E       TypeError: 'NoneType' object is not subscriptable
+
+/usr/local/lib/python3.11/site-packages/combobatch/methods/rinterop.py:46: TypeError
+_______________________ test_every_imputer_is_available ________________________
+
+>   ???
+
+/Users/user890/Desktop/ComboBatch/tests/integration/test_methods_all_backends.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/user890/Desktop/ComboBatch/tests/integration/test_methods_all_backends.py:51: in <dictcomp>
+    ???
+/usr/local/lib/python3.11/site-packages/combobatch/imputation.py:94: in is_available
+    return not self.missing_backends()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.11/site-packages/combobatch/imputation.py:86: in missing_backends
+    return [
+/usr/local/lib/python3.11/site-packages/combobatch/imputation.py:89: in <listcomp>
+    if not rinterop.r_package_available(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'softImpute'
+
+    @functools.lru_cache(maxsize=None)
+    def r_package_available(name: str) -> bool:
+        """Report whether an R package is installed, without attaching it."""
+        if not r_available():
+            return False
+        import rpy2.robjects as ro
+    
+        try:
+            result = ro.r(f"requireNamespace('{name}', quietly=TRUE)")
+        except Exception:
+            return False
+>       return bool(result[0])
+                    ^^^^^^^^^
+E       TypeError: 'NoneType' object is not subscriptable
+
+/usr/local/lib/python3.11/site-packages/combobatch/methods/rinterop.py:46: TypeError
+=========================== short test summary info ============================
+FAILED tests/integration/test_methods_all_backends.py::test_every_method_is_available
+FAILED tests/integration/test_methods_all_backends.py::test_every_imputer_is_available
+2 failed, 1 passed in 2.92s
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+FAIL: every backend is present - no method or group may skip
+
+==> combobatch selftest
+Traceback (most recent call last):
+  File "/usr/local/bin/combobatch", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/main.py", line 264, in main
+    return modules[argv[0]].main(argv[1:])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/selftest_cmd.py", line 297, in main
+    imputers = check_imputers(exp_df, require_r=args.with_r)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/selftest_cmd.py", line 162, in check_imputers
+    missing = spec.missing_backends()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/imputation.py", line 86, in missing_backends
+    return [
+           ^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/imputation.py", line 89, in <listcomp>
+    if not rinterop.r_package_available(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/combobatch/methods/rinterop.py", line 46, in r_package_available
+    return bool(result[0])
+                ~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+FAIL: selftest exited 1
+
+=====================================
+combobatch:test FAILED 3 check(s)

@@ -16,6 +16,17 @@ a method means adding one `MethodSpec` to `METHOD_REGISTRY` — nothing else, an
   `tests/unit/test_registry.py` cross-checks against the function signature. A parameter the
   function accepts but does not declare is invisible and will never be reachable — that is
   precisely the bug this package exists to fix.
+- **Never read the value of an R expression that returns invisibly.** rpy2 3.6 maps an
+  invisible result to `None`, so `ro.r("requireNamespace(...)")[0]` raises `TypeError` —
+  for an installed package and a missing one alike. Use `isinstalled`, or force
+  visibility with `isTRUE(...)`. Assignments and `library()` are invisible too.
+- **Read every annotation with `check.names=FALSE`.** R renames columns that are not
+  syntactic names, and the subsequent lookup returns an *empty vector* rather than
+  raising — `37_fabatch` failed several steps later, complaining about something else.
+  Column names come from the user and can be anything.
+- **An R error handler must record or re-raise, never only print.** `27_dwd`'s
+  `tryCatch(..., error = function(e) message(...))` left every batch uncorrected and
+  returned the input as a successful result. `tests/unit/test_r_snippets.py` pins this.
 - **`r_arglist()` is the R-injection boundary.** R snippets are f-string-interpolated, so
   every value crossing into R goes through `r_arglist`, which rejects anything that is not a
   scalar or a list of scalars. Never interpolate a raw user value into an R string.

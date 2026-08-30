@@ -33,10 +33,10 @@
 | `22_tmm` | low | R: edgeR | yes | no | `method`, `prior_count` |
 | `23_vst` | low | R: DESeq2 | yes | no | `blind`, `min_genes_for_vst` |
 | `16_fsqn_r` | high | R: FSQN | no | yes | `target_group` |
-| `19_tdm` | high | R: TDM | no | yes | `target_group`, `log_target` |
+| `19_tdm` | high | R: TDM, binr | no | yes | `target_group`, `log_target` |
 | `20_shambhala` | high | Octave | no | no | `P`, `Q`, `k`, `n_workers`, `na_strategy`, `knn_k`, `max_na_frac`, `q_pseudocount`, `random_seed`, `octave_bin`, `timeout_s`, `precompute_qn_reference`, `synthetic_cublock_p`, `max_p_samples`, `precompute_cublock_clusters`, `python_cublock` |
-| `21_harmonizr` | medium | R: HarmonizR | no | no | `algorithm` |
-| `27_dwd` | medium | R: DWDLargeR | no | yes | `target_group`, `min_batch_size` |
+| `21_harmonizr` | medium | R: HarmonizR | no | no | `algorithm`, `combat_mode` |
+| `27_dwd` | medium | R: DWDLargeR | no | yes | `target_group`, `min_batch_size`, `expon` |
 | `28_npn` | high | R: huge | no | no | `npn_func` |
 | `29_combat_ref` | medium | R: sva | no | yes | `target_group` |
 | `31_ruv3prps` | medium | R: ruv | no | no | `k_factors`, `min_cell_size` |

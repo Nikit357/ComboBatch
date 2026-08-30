@@ -16,7 +16,7 @@ one of them fails.
 
 ## What you are building
 
-One image, ~6–9 GB, carrying Python 3.11, R 4.5.3, Octave and every dependency of all 34
+One image, **5.07 GB** measured 2026-08-30, carrying Python 3.11, R 4.5.3, Octave and every dependency of all 34
 harmonization methods, 4 imputers and 14 metric groups. The Karpenter pod consumes it
 directly, which is what replaces the donors' 30–40 minute startup install with an image
 pull.
@@ -38,15 +38,80 @@ pull.
 |---|---|---|
 | Docker Desktop running | `docker version` | 29.7.2 verified on this Mac |
 | buildx builder | `docker buildx ls` | `desktop-linux` must be `running` and list `linux/amd64` |
-| Free disk | `df -h .` | **≥ 25 GB.** The image is 6–9 GB and the build cache is comparable |
-| Network | — | The build downloads a 67 MB R package, all of Bioconductor's dependency closure, and `git+https://github.com/BorgwardtLab/reComBat` |
+| Free disk | `df -h .` | **≥ 25 GB.** The image is ~5 GB, but the build cache holds every R stage and is several times larger |
+| Network | step 0b | Public internet only — a 67 MB R package, all of Bioconductor's dependency closure, and `git+https://github.com/BorgwardtLab/reComBat`. Nothing corporate is needed, and **a TLS-inspecting VPN must be disconnected first** |
 | GitHub token | see step 5 | Only needed to push, not to build |
 
 Verified on this machine 2026-08-29: 149 GB free, `desktop-linux` builder running,
 `linux/amd64` available.
 
-A VPN that intercepts TLS will break the build at the CRAN/Bioconductor or GitHub step.
-If you use one, turn it off for the build.
+---
+
+## Step 0b — Behind a TLS-inspecting network
+
+A VPN or proxy that terminates and re-signs HTTPS presents a private root certificate.
+Your Mac trusts it, because IT installed it in the System keychain. **The container does
+not**, and every HTTPS fetch in the build dies with:
+
+```
+curl: (60) SSL certificate problem: self-signed certificate in certificate chain
+```
+
+This is why the symptom is confusing: the same URL works perfectly in your terminal and
+fails inside Docker. On this machine the cause is the FortiClient VPN, which carries a
+**full tunnel** — it owns the default route, so every connection reaches the corporate
+FortiGate and is inspected there.
+
+Check it in about a minute:
+
+```bash
+docker run --rm python:3.11-slim-bookworm sh -c \
+    'apt-get update -qq >/dev/null 2>&1; \
+     apt-get install -y -qq --no-install-recommends curl ca-certificates >/dev/null 2>&1; \
+     curl -fsSI https://cdn.posit.co/r/debian-12/pkgs/r-4.5.3_1_amd64.deb >/dev/null; echo exit=$?'
+```
+
+| Result | Meaning |
+|---|---|
+| `exit=0` | Nothing is intercepting. Build. |
+| `exit=60` | HTTPS is being re-signed. **Disconnect the VPN and re-run this probe** before starting an hour-long build. |
+
+The Dockerfile probes for exactly this immediately after the apt layer, so a build started
+on an inspected network fails in two seconds with an explanation rather than 155 seconds in
+with a misleading one.
+
+**That probe is point-in-time, and cannot be anything else.** It answers "is TLS verifiable
+right now", at second one. The R layer then needs verifiable TLS continuously for the next
+15–30 minutes. On 2026-08-30 the probe passed, the build ran cleanly for 14 minutes, and
+FortiClient reconnected underneath it: every download after that failed certificate
+verification. A passing probe is not a promise about the rest of the build.
+
+So, before you start:
+
+- **Confirm the VPN will not reconnect on its own.** FortiClient may be configured to
+  re-establish the tunnel; quitting the client is more reliable than disconnecting it.
+- **Spot-check mid-build** if the build is long. `en0`, not `utun4`, should hold the
+  default route:
+
+  ```bash
+  netstat -rn -f inet | head -5
+  ```
+
+Two things to remember:
+
+- **Stay disconnected for the whole build.** `install_r_packages.R` downloads from CRAN,
+  Bioconductor and GitHub throughout, not just at the start. If the tunnel does come back,
+  the R install is staged across six Docker layers, so only the stage that was running is
+  lost — reconnect-safe, not reconnect-proof.
+- **Reconnect before steps 7 and 8**, and before any S3 work — `rnd-sandbox` and the
+  dissertation bucket are reachable only through the VPN. Pushing to GHCR (step 6) works
+  either way: Docker Desktop's own VM already trusts the corporate CA, which is why the
+  base image pulls fine even while the container cannot reach CRAN.
+
+If disconnecting is not possible — an always-on policy, for instance — the alternative is
+to install the corporate root into the image's trust store. That is deliberately *not*
+implemented here, because the resulting image trusts a private MITM anchor and must never
+be published. See `tls_inspection_ca_plan_260829.md`, "Tier 2".
 
 ---
 
@@ -102,6 +167,16 @@ It builds `combobatch:test` for `linux/amd64`, loads it into the local daemon, a
 runs the acceptance gate. Each check exists because the corresponding failure has actually
 happened:
 
+> The R install runs as **six layers** — `prereq`, `cran`, `bapred`, `bioc`, `github`,
+> `verify` — each verifying its own packages before it exits. A failure costs the stage it
+> was in, not the whole 15–30 minutes, and a rebuild resumes from the last one that
+> succeeded. Watch for `CACHED` against the `--stage` lines to see it working.
+>
+> The R layer is materially faster since 2026-08-30, when `dependencies = TRUE` came out of
+> `install_r_packages.R`. That flag pulled `Suggests` — V8, shiny, rgl, plotly, gsl, sodium
+> and ten more — and compiled them for 860 seconds before failing. Nothing in the registries
+> imports any of them.
+
 | Check | Guards against |
 |---|---|
 | `R.version.string` is 4.5.x | rpy2 3.6.x has a C-level ABI incompatibility with R 4.6.0 — the symptom is a segfault around `33_amdbnorm` |
@@ -137,7 +212,9 @@ docker buildx build --platform linux/amd64 -t combobatch:test -f docker/Dockerfi
 ## Step 4 — Inspect what you built (optional)
 
 ```bash
-docker images combobatch:test                       # expect 6-9 GB
+docker images combobatch:test                       # expect ~5 GB
+docker run --rm --platform linux/amd64 combobatch:test \
+    du -sm /usr/local/lib/python3.11/site-packages   # expect ~1.3 GB, not ~5.8
 docker run --rm --platform linux/amd64 combobatch:test combobatch list-methods | wc -l
 docker run --rm --platform linux/amd64 combobatch:test \
     Rscript -e 'cat(length(rownames(installed.packages())), "R packages\n")'
@@ -241,13 +318,22 @@ should not need.
 | Pod: `exec format error` | Image built for arm64 | Rebuild with `--platform linux/amd64`; always go through `scripts/build_and_push_image.sh` |
 | Pod: `403 Forbidden` / `denied` on pull | GHCR package still private | Step 7 |
 | Push: `denied: permission_denied` | Token lacks `write:packages`, or you are not logged in | Regenerate a classic token with that scope; `docker login ghcr.io` again |
-| Build: `R 4.5.3 is not published for arm64…` | Built without `--platform linux/amd64` | The Posit `.deb` is amd64-only; use the script |
+| Build: `the pinned R build is published for amd64 only, this is arm64…` | Built without `--platform linux/amd64` | The Posit `.deb` is amd64-only; use the script. This message now appears only for a genuine architecture mismatch — it used to be printed for *any* download failure, including TLS ones |
 | Build: `R version pin failed` | The Posit CDN stopped serving that exact `.deb` | Fall back to the commented alternative in the Dockerfile: `apt-get install r-base=4.5.3-1~bookwormcran.0` + `apt-mark hold` |
-| Build: `Failed to install N required package(s): …` | One or more R installs failed | Scroll up to the `WARN:` lines — every install is attempted, so the log names *all* failures, not just the first. A network or CRAN mirror hiccup is the usual cause; re-run the build |
-| Image builds, but `14_qsmooth` skips at run time | `Hmisc` failed to compile, and BiocManager reports qsmooth as *skipped* rather than failed | Check `libpng-dev` and `zlib1g-dev` are still in the apt layer; that is precisely what they are there for |
+| Build: `status was 'SSL peer certificate or SSH remote key was not OK'`, part-way through the R layer | The VPN reconnected **during** the build; the preflight probe only checks the moment it starts | Quit FortiClient rather than disconnecting it, confirm `netstat -rn -f inet` shows `en0` holding the default route, and rebuild. Completed stages are cached, so the rebuild resumes — **do not** prune the build cache first |
+| Build: `ERROR: configuration failed for package ‘fs’`, "libuv was not found" | `libuv1-dev` missing from the apt layer | Restore it. `fs` 2.x needs a system libuv, and `qsmooth → Hmisc → rmarkdown → bslib → sass → fs` makes it a hard requirement of this image |
+| Any command: `TypeError: 'NoneType' object is not subscriptable` from `rinterop.py` | An R expression whose value is returned *invisibly*. rpy2 3.6 maps that to `None`, so there is nothing to index | Never read the result of `ro.r("requireNamespace(...)")`, `library(...)` or an assignment. Use `rpy2.robjects.packages.isinstalled`, or wrap the expression in `isTRUE(...)` to force visibility |
+| The image is far larger than 9 GB | A Python dependency pulled `torch`, and with it `nvidia/*` and `triton` — ~4.5 GB of CUDA in a CPU-only image | `du -sm /usr/local/lib/python3.11/site-packages/*  \| sort -rn \| head`. `harmonypy` 0.2.0 did exactly this and is pinned `<0.2` |
+| Octave prints `error: ignoring const execution_exception& while preparing to exit` | An Octave 7.3 shutdown-path artefact | Ignore it. Exit code is 0, stdout is correct, and it appears from plain `octave --no-gui` too. The Shambhala bridge gates on the return code, never on stderr text |
+| Build: `The 'sklearn' PyPI package is deprecated` / `metadata-generation-failed`, at the pip layer | Something is pulling reComBat's declared dependencies. It names `sklearn`, the deprecated stub that now only raises | reComBat has its own Dockerfile layer, installed with `--no-deps --ignore-requires-python`. **Do not** add `sklearn` to `requirements.txt` to satisfy it — the stub installs no module, and the real dependency, `scikit-learn`, is already pinned |
+| Build: `reComBat requires a different Python: 3.11 … not in '>=3.8,<3.11'` | The same install, without `--ignore-requires-python` | That bound is stale metadata; reComBat runs correctly on 3.11 (measured). Keep the flag, and keep the import check that follows it |
+| `21_harmonizr` returns an empty matrix, or `produced an empty result` | HarmonizR writes a three-byte file instead of raising when its ComBat blocks yield nothing. Modes 1 and 3 (`mean.only = FALSE`) do that on any matrix without missing values | Leave `combat_mode` at its default of 2, or try 4. Modes 1 and 3 are selectable but return nothing on complete data |
+| Build: `stage <name> could not install: …` | One stage's packages are missing. The message itself says whether the cause was a failed download or a failed build | Follow what it names. Search the log for `WARN:` and for `ERROR: configuration failed` — the named package is often the symptom, and the first `configuration failed` is the cause, normally a missing `-dev` system library. Only that stage and the ones after it re-run |
+| Build: `Failed to install N required package(s): …` at the `verify` stage | Every stage verifies itself, so this means a **cached layer** is missing what it installed | `docker buildx build --no-cache …`, or delete the image and rebuild |
 | `test_methods_all_backends.py` skips instead of running | `COMBOBATCH_FULL_ENV=1` not set | It is set in the Dockerfile; if you are running the tests outside the image, that skip is correct |
 | Build fails with no space left | Build cache | `docker builder prune -f` (add `--all` to also drop cached base layers) |
-| Build hangs at CRAN/Bioconductor or GitHub | TLS-intercepting VPN | Disable it for the build |
+| Build: `TLS verification failed inside the container` right after the apt layer | TLS-intercepting VPN or proxy | Disconnect it for the build — step 0b |
+| Build: `curl: (60) SSL certificate problem: self-signed certificate in certificate chain`, at the R download or during `install_r_packages.R` | The same, on an image built before the preflight probe existed | Disconnect it for the build — step 0b |
 
 ## Starting over
 
@@ -257,3 +343,8 @@ docker rmi combobatch:test          # drop the local image
 ```
 
 A clean rebuild is again 45–90 minutes.
+
+> **Do not do this after a network failure.** The build cache is what holds the R stages
+> that already succeeded, and pruning it turns a resumable rebuild back into a full one.
+> Reach for it when a layer is *wrong* — a stale cached stage, a changed system library —
+> not when a download failed.

@@ -34,14 +34,25 @@ DEFAULT_CONTROL_GENES = (
 )
 
 
-def _require(package: str, method_name: str, extra: str) -> None:
-    """Raise a NotImplementedError naming the install command for a missing package."""
+def _require(
+    package: str, method_name: str, extra: str, hint: str | None = None
+) -> None:
+    """Raise a NotImplementedError naming the install command for a missing package.
+
+    Parameters
+    ----------
+    hint:
+        Replaces the default `pip install 'combobatch[<extra>]'` command. Needed where
+        an extra cannot carry the package — naming a command that does not install it
+        is worse than naming none.
+    """
     import importlib.util
 
     if importlib.util.find_spec(package) is None:
+        command = hint or f"pip install 'combobatch[{extra}]'"
         raise NotImplementedError(
             f"{method_name} needs the Python package {package!r}, which is not "
-            f"installed. Install it with `pip install 'combobatch[{extra}]'`."
+            f"installed. Install it with `{command}`."
         )
 
 
@@ -389,7 +400,18 @@ def normalize_recombat(
     -------
     reComBat-corrected expression matrix.
     """
-    _require("reComBat", "30_recombat", "methods")
+    # Not `combobatch[methods]`: reComBat declares the deprecated `sklearn` stub and
+    # `python <3.11`, so it cannot be an extra at all. See docker/Dockerfile.
+    _require(
+        "reComBat",
+        "30_recombat",
+        "methods",
+        hint=(
+            "pip install --no-deps --ignore-requires-python 'reComBat @ "
+            "git+https://github.com/BorgwardtLab/reComBat"
+            "@b02bd025c9671e75f37dc513d7f466b05448364d'"
+        ),
+    )
     from reComBat import reComBat
 
     exp_in, _ = drop_na_genes(exp_df)

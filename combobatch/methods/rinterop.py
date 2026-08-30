@@ -37,13 +37,16 @@ def r_package_available(name: str) -> bool:
     """Report whether an R package is installed, without attaching it."""
     if not r_available():
         return False
-    import rpy2.robjects as ro
+    # rpy2's own API, not `ro.r("requireNamespace(...)")`: requireNamespace returns its
+    # logical *invisibly*, and rpy2 3.6 maps an invisible result to None — for the
+    # installed package and the missing one alike, so that form could only ever raise
+    # TypeError. It also removes the last interpolation of a name into R source here.
+    from rpy2.robjects.packages import isinstalled
 
     try:
-        result = ro.r(f"requireNamespace('{name}', quietly=TRUE)")
+        return bool(isinstalled(name))
     except Exception:
         return False
-    return bool(result[0])
 
 
 def require_r(method_name: str) -> None:

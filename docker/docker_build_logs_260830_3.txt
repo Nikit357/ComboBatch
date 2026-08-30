@@ -1,0 +1,842 @@
+
+user890@BGA-0767 ComboBatch % bash scripts/smoke_test.sh
+==> building combobatch:test (linux/amd64)
+[+] Building 2738.8s (26/26) FINISHED                                                                                                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                                                            0.0s
+ => => transferring dockerfile: 10.88kB                                                                                                                                                                         0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim-bookworm                                                                                                                                    0.1s
+ => [internal] load .dockerignore                                                                                                                                                                               0.0s
+ => => transferring context: 393B                                                                                                                                                                               0.0s
+ => [ 1/21] FROM docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                            0.0s
+ => => resolve docker.io/library/python:3.11-slim-bookworm@sha256:0bee7276f83efd4a1ee05bbbf4281d95ed28e079220a9457f25a93e3f1e3c31b                                                                              0.0s
+ => [internal] load build context                                                                                                                                                                               0.0s
+ => => transferring context: 390.05kB                                                                                                                                                                           0.0s
+ => CACHED [ 2/21] RUN apt-get update && apt-get install -y --no-install-recommends         ca-certificates curl wget gnupg2 git         build-essential gfortran cmake pkg-config         libcurl4-openssl-de  0.0s
+ => CACHED [ 3/21] RUN set -eu;     rc=0; curl -sS -o /dev/null --max-time 30 https://cdn.posit.co/ || rc=$?;     if [ "$rc" -eq 60 ]; then         echo "----------------------------------------------------  0.0s
+ => CACHED [ 4/21] RUN set -eu;     arch="$(dpkg --print-architecture)";     [ "$arch" = "amd64" ]         || { echo "the pinned R build is published for amd64 only, this is ${arch}; rebuild with --platform  0.0s
+ => [ 5/21] COPY docker/install_r_packages.R /tmp/install_r_packages.R                                                                                                                                          0.0s
+ => [ 6/21] RUN Rscript /tmp/install_r_packages.R --stage prereq                                                                                                                                              390.8s
+ => [ 7/21] RUN Rscript /tmp/install_r_packages.R --stage cran                                                                                                                                                707.4s 
+ => [ 8/21] RUN Rscript /tmp/install_r_packages.R --stage bapred                                                                                                                                              422.7s 
+ => [ 9/21] RUN Rscript /tmp/install_r_packages.R --stage bioc                                                                                                                                                696.8s 
+ => [10/21] RUN Rscript /tmp/install_r_packages.R --stage github                                                                                                                                              171.1s 
+ => [11/21] RUN Rscript /tmp/install_r_packages.R --stage verify     && rm -f /tmp/install_r_packages.R                                                                                                        12.8s 
+ => [12/21] RUN apt-get update && apt-get install -y --no-install-recommends         octave octave-statistics     && rm -rf /var/lib/apt/lists/*     && printf '%s\n'         '#!/bin/bash'         'args=()'  67.1s 
+ => [13/21] COPY requirements.txt /tmp/requirements.txt                                                                                                                                                         0.1s 
+ => [14/21] RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm -f /tmp/requirements.txt                                                                                                            215.9s 
+ => [15/21] RUN pip install --no-cache-dir --no-deps --ignore-requires-python         "reComBat @ git+https://github.com/BorgwardtLab/reComBat@b02bd025c9671e75f37dc513d7f466b05448364d"     && python -c "fr  20.4s 
+ => [16/21] WORKDIR /app                                                                                                                                                                                        0.0s 
+ => [17/21] COPY . /app                                                                                                                                                                                         0.2s 
+ => [18/21] RUN pip install --no-cache-dir --no-deps .     && combobatch --version                                                                                                                              7.1s 
+ => [19/21] RUN printf '%s\n'         'OMP_NUM_THREADS=1'         'OPENBLAS_NUM_THREADS=1'         'MKL_NUM_THREADS=1'         'NUMEXPR_NUM_THREADS=1'         'VECLIB_MAXIMUM_THREADS=1'         'COMBOBATCH_  0.1s 
+ => [20/21] COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh                                                                                                                                              0.0s 
+ => [21/21] RUN chmod +x /usr/local/bin/entrypoint.sh                                                                                                                                                           0.1s 
+ => exporting to image                                                                                                                                                                                         25.8s 
+ => => exporting layers                                                                                                                                                                                        25.8s 
+ => => exporting manifest sha256:f3bbe7beec3185f5aca640e7f2abfc3e9f56026979854571b6f327d60738b04e                                                                                                               0.0s 
+ => => exporting config sha256:b9432dd8e591790d11419ef41fb3ca251e8bb8716420691ef072165cae0c819a                                                                                                                 0.0s
+ => => exporting attestation manifest sha256:d8a1a888eef623aeba866a646e048f2d07bc0720a19f3c864ccaf4261343157f                                                                                                   0.0s
+ => => exporting manifest list sha256:edd9d631a56556f4462c581147101430cc37dd069165430cef184459e5c14476                                                                                                          0.0s
+ => => naming to docker.io/library/combobatch:test                                                                                                                                                              0.0s
+
+==> R reports 4.5.x through rpy2
+R version 4.5.3 (2026-03-11)
+OK: R reports 4.5.x through rpy2
+
+==> R dependencies of the metrics and fabatch paths load
+Loading required package: ggplot2
+Loading required package: limma
+Loading required package: BiocParallel
+
+Attaching package: ‘variancePartition’
+
+The following objects are masked from ‘package:limma’:
+
+    eBayes, topTable
+
+Loading required package: glmnet
+Loading required package: Matrix
+Loaded glmnet 5.0
+Loading required package: lme4
+Loading required package: MASS
+Loading required package: sva
+Loading required package: mgcv
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:lme4’:
+
+    lmList
+
+This is mgcv 1.9-4. For overview type '?mgcv'.
+Loading required package: genefilter
+
+Attaching package: ‘genefilter’
+
+The following object is masked from ‘package:MASS’:
+
+    area
+
+Loading required package: affyPLM
+Loading required package: BiocGenerics
+Loading required package: generics
+
+Attaching package: ‘generics’
+
+The following object is masked from ‘package:lme4’:
+
+    refit
+
+The following objects are masked from ‘package:base’:
+
+    as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+    setequal, union
+
+
+Attaching package: ‘BiocGenerics’
+
+The following object is masked from ‘package:limma’:
+
+    plotMA
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+    unsplit, which.max, which.min
+
+Loading required package: affy
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: gcrma
+Loading required package: preprocessCore
+R deps OK
+OK: R dependencies of the metrics and fabatch paths load
+
+==> Octave is present
+octave: X11 DISPLAY environment variable not set
+octave: disabling GUI features
+GNU Octave, version 7.3.0
+Copyright (C) 1993-2022 The Octave Project Developers.
+This is free software; see the source code for copying conditions.
+There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
+
+Octave was configured for "x86_64-pc-linux-gnu".
+
+Additional information about Octave is available at https://www.octave.org.
+
+Please contribute if you find this software useful.
+For more information, visit https://www.octave.org/get-involved.html
+
+Read https://www.octave.org/bugs.html to learn how to submit bug reports.
+OK: Octave is present
+
+==> the matlab wrapper strips MATLAB-only flags
+wrapper ok
+error: ignoring const execution_exception& while preparing to exit
+OK: the matlab wrapper strips MATLAB-only flags
+
+==> the three registries load
+Harmonization methods (34)
+
+  01_raw                [low]
+                        No correction; the baseline every metric is read against.
+
+  02_median_scaling     [low]
+                        Per-batch median centring.
+
+  07_pycombat           [medium]
+                        Behdenna et al. 2023, BMC Bioinformatics (pyComBat).
+
+  08_inmoose_combatseq  [medium]
+                        Zhang et al. 2020, NAR Genom Bioinform (ComBat-seq), via InMoose.
+
+  11_harmony            [medium]
+                        Korsunsky et al. 2019, Nat Methods.
+                          --n_pcs (int, default 50)
+                          --max_iter (int, default 20)
+
+  12_scanorama          [medium]
+                        Hie et al. 2019, Nat Biotechnol.
+                          --dimred (int, default 50)
+
+  13_fsmvn              [medium]
+                        Feature-specific mean-variance normalization.
+                          --target_group (str, default None)
+
+  15_fsqn_py            [high]
+                        Franks et al. 2018, Biostatistics (FSQN), Python implementation.
+                          --target_group (str, default None)
+
+  17_quantile           [high]
+                        Bolstad et al. 2003, Bioinformatics.
+
+  18_rank               [high]
+                        Fractional rank transform; platform-independent by construction.
+
+  25_angel              [high]
+                        Angel et al. 2020, PLOS Comput Biol.
+                          --threshold (float, default 0.2)
+
+  26_xpn                [high]
+                        Shabalin et al. 2008, Bioinformatics (XPN).
+                          --target_group (str, default None)
+                          --n_quantiles (int, default 50)
+
+  30_recombat           [medium]
+                        Adossa et al. 2021 (reComBat).
+
+  03_limma              [low]
+                        Ritchie et al. 2015, NAR (limma::removeBatchEffect).
+
+  04_sva                [low]
+                        Leek & Storey 2012, Bioinformatics (SVA).
+
+  05_combat             [medium]
+                        Johnson et al. 2007, Biostatistics (ComBat).
+
+  06_combat_seq         [medium]
+                        Zhang et al. 2020, NAR Genom Bioinform (ComBat-seq).
+
+  09_ruv                [medium]
+                        Risso et al. 2014, Nat Biotechnol (RUVg).
+                          --k (int, default 2)
+                          --control_genes (tuple, default ('ACTB', 'GAPDH', 'B2M', 'HPRT1', 'RPL13A', 'SDHA', 'UBC', 'YWHAZ', 'HMBS', 'TBP'))
+
+  10_mnn                [medium]
+                        Haghverdi et al. 2018, Nat Biotechnol (fastMNN).
+                          --k (int, default 20)
+
+  14_qsmooth            [high]
+                        Hicks et al. 2018, Biostatistics (qsmooth).
+
+  22_tmm                [low]
+                        Robinson & Oshlack 2010, Genome Biol (TMM via edgeR).
+                          --method (str, default 'TMM') one of ['TMM', 'TMMwsp', 'RLE', 'upperquartile', 'none']
+                          --prior_count (float, default 1.0)
+
+  23_vst                [low]
+                        Love et al. 2014, Genome Biol (DESeq2 VST).
+                          --blind (bool, default True)
+                          --min_genes_for_vst (int, default 1000)
+
+  16_fsqn_r             [high]
+                        Franks et al. 2018, Biostatistics (FSQN R package).
+                          --target_group (str, default None)
+
+  19_tdm                [high]
+                        Thompson et al. 2016, BMC Bioinformatics (TDM).
+                          --target_group (str, default None)
+                          --log_target (bool, default False)
+
+  20_shambhala          [high]
+                        Borisov et al. 2021, Bioinformatics (Shambhala2); CuBlock.
+                          --P (str, default None)
+                          --Q (str, default None)
+                          --k (int, default 5)
+                          --n_workers (int, default 1)
+                          --na_strategy (str, default 'drop') one of ['drop', 'knn']
+                          --knn_k (int, default 5)
+                          --max_na_frac (float, default 0.2)
+                          --q_pseudocount (float, default 1e-06)
+                          --random_seed (int, default None)
+                          --octave_bin (str, default 'octave')
+                          --timeout_s (int, default 6000)
+                          --precompute_qn_reference (bool, default False)
+                          --synthetic_cublock_p (bool, default False)
+                          --max_p_samples (int, default None)
+                          --precompute_cublock_clusters (bool, default False)
+                          --python_cublock (bool, default False)
+
+  21_harmonizr          [medium]
+                        Voss et al. 2022, Bioinformatics (HarmonizR).
+                          --algorithm (str, default 'ComBat') one of ['ComBat', 'limma']
+
+  27_dwd                [medium]
+                        Qing & Marron 2018 (DWDLargeR).
+                          --target_group (str, default None)
+                          --min_batch_size (int, default 5)
+                          --expon (float, default 1.0)
+
+  28_npn                [high]
+                        Liu et al. 2009, JMLR (nonparanormal), via huge.
+                          --npn_func (str, default 'truncation') one of ['truncation', 'shrinkage', 'skeptic']
+
+  29_combat_ref         [medium]
+                        M-ComBat: ComBat anchored to a reference batch (sva).
+                          --target_group (str, default None)
+
+  31_ruv3prps           [medium]
+                        Molania et al. 2022, NAR (RUV-III-PRPS).
+                          --k_factors (int, default 5)
+                          --min_cell_size (int, default 2)
+
+  33_amdbnorm           [high]
+                        AMDBNorm (PMID 34958674), on DBNorm.
+                          --target_group (str, default None)
+                          --poly_degree (int, default 9)
+                          --n_dist_points (int, default 500)
+
+  34_arsyn              [medium]
+                        Nueda et al. 2012, Bioinformatics (ARSyN), via NOISeq.
+                          --norm (str, default 'n') one of ['n', 'rpkm', 'uqua', 'tmm']
+                          --logtransf (bool, default False)
+
+  37_fabatch            [medium]
+                        Hornung et al. 2016, BMC Bioinformatics (FAbatch), via bapred.
+                          --target_col (str, default None)
+
+  38_harman             [medium]
+                        Oytam et al. 2016, BMC Bioinformatics (Harman).
+                          --limit (float, default 0.1)
+
+OK: the three registries load
+
+==> metric groups load without a panel file
+Metric groups (14)
+
+  E  Data quality  [fast, default]
+     Shape, batch balance, zero inflation, expression percentiles and per-cohort bimodality.
+     sentinel: n_samples
+
+  K  NA retention  [fast, default]
+     Genes and samples free of missing values after harmonization — the cheapest way to catch a method that silently destroyed the matrix.
+     sentinel: n_genes_noNA
+
+  A  PCA variance decomposition  [moderate, default]
+     How much of each principal component's variance each annotation column explains, plus a permutation-tested separability score.
+     sentinel: r2_{batch}
+
+  J  Per-PC variance  [fast, default]
+     Share of total variance carried by each leading component.
+     sentinel: pct_var_pc1
+
+  B  Neighbourhood integration  [slow, default]
+     kBET, iLISI/cLISI, silhouettes and cell mixing: whether batches blend locally while biology stays apart.
+     sentinel: kbet_acceptance_rate_{batch}
+
+  C  Embedding structure  [slow]
+     Centroid dispersion and local entropy of batch labels in UMAP and t-SNE space.
+     sentinel: umap_centroid_disp_{batch}
+
+  D  Distribution comparison  [slow]
+     Pairwise Kolmogorov-Smirnov distances between groups, cohort effects within a batch, and per-gene coefficient of variation.
+     sentinel: ks_mean_D_{batch}
+
+  G  Graph connectivity  [moderate]
+     Whether each biology group forms a single connected kNN component rather than one island per batch.
+     sentinel: graph_connectivity_{bio}
+
+  H  Pairwise distances  [moderate]
+     Average within-group against between-group Euclidean distance in full gene space.
+     sentinel: dist_ratio_{batch}
+
+  I  WaterMelon score  [very_slow]
+     Information a Ward dendrogram recovers about each label, against a permutation null.
+     sentinel: wm_{batch}
+
+  L  Profile preservation  [moderate, needs reference, uses panel]
+     Within-cohort Spearman correlation of each gene before and after harmonization. Saturates at ~1.0 for any per-batch monotone transform, so read it as a guard rail, not a ranking.
+     sentinel: mk_rho_mean_all_genes
+
+  M  Cross-batch rank agreement  [moderate, uses panel]
+     Whether same-biology samples agree across batches more than different-biology ones. The margin is the discriminative signal.
+     sentinel: xb_rank_agree
+
+  N  Predictive validation  [very_slow]
+     Leave-one-batch-out classification of biology, against a label permutation control.
+     sentinel: pv_lobo3_f1_macro_mean
+
+  F  Variance partition  [very_slow]
+     Per-gene variance attributed to each annotation column by a mixed model, via R's variancePartition.
+     sentinel: vp_median_{batch}
+
+OK: metric groups load without a panel file
+
+==> every backend is present - no method or group may skip
+...                                                                      [100%]
+3 passed in 2.62s
+OK: every backend is present - no method or group may skip
+
+==> combobatch selftest
+Found 3 batches.
+Adjusting for 0 covariate(s) or covariate level(s).
+Standardizing Data across genes.
+Fitting L/S model and finding priors.
+Finding parametric adjustments.
+Adjusting the Data
+2026-08-30 14:23:18,748 - harmonypy - INFO - Running Harmony (NumPy, R package compatible)
+2026-08-30 14:23:18,749 - harmonypy - INFO -   Parameters:
+2026-08-30 14:23:18,749 - harmonypy - INFO -     max_iter_harmony: 20
+2026-08-30 14:23:18,749 - harmonypy - INFO -     max_iter_kmeans: 20
+2026-08-30 14:23:18,749 - harmonypy - INFO -     epsilon_cluster: 1e-05
+2026-08-30 14:23:18,749 - harmonypy - INFO -     epsilon_harmony: 0.0001
+2026-08-30 14:23:18,749 - harmonypy - INFO -     nclust: 3
+2026-08-30 14:23:18,749 - harmonypy - INFO -     block_size: 0.05
+2026-08-30 14:23:18,750 - harmonypy - INFO -     lamb: [1. 1. 1.]
+2026-08-30 14:23:18,750 - harmonypy - INFO -     theta: [2. 2. 2.]
+2026-08-30 14:23:18,750 - harmonypy - INFO -     sigma: [0.1 0.1 0.1]
+2026-08-30 14:23:18,750 - harmonypy - INFO -     verbose: True
+2026-08-30 14:23:18,750 - harmonypy - INFO -     random_state: 0
+2026-08-30 14:23:18,750 - harmonypy - INFO -   Data: 50 PCs × 80 cells
+2026-08-30 14:23:18,750 - harmonypy - INFO -   Batch variables: ['batch']
+2026-08-30 14:23:18,752 - harmonypy - INFO - Computing initial centroids with sklearn.KMeans...
+2026-08-30 14:23:18,793 - harmonypy - INFO - KMeans initialization complete.
+2026-08-30 14:23:18,795 - harmonypy - INFO - Iteration 1 of 20
+2026-08-30 14:23:18,811 - harmonypy - INFO - Iteration 2 of 20
+2026-08-30 14:23:18,815 - harmonypy - INFO - Iteration 3 of 20
+2026-08-30 14:23:18,822 - harmonypy - INFO - Iteration 4 of 20
+2026-08-30 14:23:18,825 - harmonypy - INFO - Converged after 4 iterations
+Found 200 genes among all datasets
+[[0. 1. 1.]
+ [0. 0. 1.]
+ [0. 0. 0.]]
+Processing datasets (1, 2)
+Processing datasets (0, 2)
+Processing datasets (0, 1)
+[reComBat] 2026-08-30 14:23:18,942 Starting to fot reComBat.
+[reComBat] 2026-08-30 14:23:18,943 Fit the linear model.
+[reComBat] 2026-08-30 14:23:18,952 Starting the empirical parametric optimisation.
+[reComBat] 2026-08-30 14:23:18,953 Optimisation finished.
+[reComBat] 2026-08-30 14:23:18,954 reComBat is fitted.
+[reComBat] 2026-08-30 14:23:18,954 Starting to transform.
+[reComBat] 2026-08-30 14:23:18,954 Transform finished.
+[reComBat] 2026-08-30 14:23:19,867 R callback write-console: design matrix of interest not specified. Assuming a one-group experiment.
+  
+[reComBat] 2026-08-30 14:23:25,138 R callback write-console: Found3batches
+  
+[reComBat] 2026-08-30 14:23:25,139 R callback write-console: Adjusting for1covariate(s) or covariate level(s)
+  
+[reComBat] 2026-08-30 14:23:25,139 R callback write-console: Standardizing Data across genes
+  
+[reComBat] 2026-08-30 14:23:25,141 R callback write-console: Fitting L/S model and finding priors
+  
+[reComBat] 2026-08-30 14:23:25,146 R callback write-console: Finding parametric adjustments
+  
+[reComBat] 2026-08-30 14:23:26,341 R callback write-console: Adjusting the Data
+
+  
+Found 3 batches
+Using full model in ComBat-seq.
+Adjusting for 1 covariate(s) or covariate level(s)
+Estimating dispersions
+Fitting the GLM model
+Shrinkage off - using GLM estimates for parameters
+Adjusting the data
+[reComBat] 2026-08-30 14:23:34,007 R callback write-console: Warning in (function (A, nv = 5, nu = nv, maxit = 1000, work = nv + 7, reorth = TRUE,  :  
+[reComBat] 2026-08-30 14:23:34,008 R callback write-console: 
+   
+[reComBat] 2026-08-30 14:23:34,008 R callback write-console:  You're computing too large a percentage of total singular values, use a standard svd instead.
+  
+[reComBat] 2026-08-30 14:23:39,939 R callback write-console: -- note: fitType='parametric', but the dispersion trend was not well captured by the
+   function: y = a/x + b, and a local regression fit was automatically substituted.
+   specify fitType='local' or 'mean' to avoid this message next time.
+  
+[reComBat] 2026-08-30 14:23:41,228 R callback write-console: Loading required package: preprocessCore
+  
+[reComBat] 2026-08-30 14:23:42,106 R callback write-console: data.table 1.18.6.1 using 1 threads (see ?getDTthreads).    
+[reComBat] 2026-08-30 14:23:42,107 R callback write-console: Latest news: r-datatable.com
+  
+[reComBat] 2026-08-30 14:23:42,112 R callback write-console: 
+Attaching package: ‘data.table’
+
+  
+[reComBat] 2026-08-30 14:23:42,113 R callback write-console: The following object is masked from ‘package:ShortRead’:
+
+    tables
+
+  
+[reComBat] 2026-08-30 14:23:42,113 R callback write-console: The following objects are masked from ‘package:GenomicAlignments’:
+
+    first, last, second
+
+  
+[reComBat] 2026-08-30 14:23:42,114 R callback write-console: The following object is masked from ‘package:SummarizedExperiment’:
+
+    shift
+
+  
+[reComBat] 2026-08-30 14:23:42,114 R callback write-console: The following object is masked from ‘package:GenomicRanges’:
+
+    shift
+
+  
+[reComBat] 2026-08-30 14:23:42,114 R callback write-console: The following object is masked from ‘package:IRanges’:
+
+    shift
+
+  
+[reComBat] 2026-08-30 14:23:42,115 R callback write-console: The following objects are masked from ‘package:S4Vectors’:
+
+    first, second
+
+  
+[reComBat] 2026-08-30 14:23:42,866 Shambhala gene intersection: 200 genes (input had 200, P 11768, Q 11887).
+[reComBat] 2026-08-30 14:23:42,869 Shambhala NA strategy 'drop': 0 gene(s) dropped.
+[reComBat] 2026-08-30 14:23:42,870 Dispatching 80 samples across 1 workers (80–80 samples/worker).
+[reComBat] 2026-08-30 14:23:49,428 Batch done (python_cublock=False): NH=80, NP=39, n_genes=200, elapsed=6s.
+[reComBat] 2026-08-30 14:23:49,449 Worker 1/1 complete.
+[reComBat] 2026-08-30 14:23:50,727 R callback write-console: Writing file...
+  
+[reComBat] 2026-08-30 14:23:51,876 R callback write-console: Loading required package: Matrix
+  
+[reComBat] 2026-08-30 14:23:51,887 R callback write-console: 
+Attaching package: ‘Matrix’
+
+  
+[reComBat] 2026-08-30 14:23:51,887 R callback write-console: The following object is masked from ‘package:S4Vectors’:
+
+    expand
+
+  
+
+ max-normX, min-normX = 8.44e+01, 4.87e+01
+ Algorithm stopped with error 1.10e-04
+
+ sample size =  54, feature dimension = 200
+ positve sample =  27, negative sample =  27
+ number of iterations = 493
+ time taken = 11.68
+ error of classification (training) = 0.00 (%)
+ primfeas = 3.28e-07
+ dualfeas = 9.98e-06
+ relative gap = 2.62e-01
+
+ max-normX, min-normX = 8.47e+01, 4.45e+01
+ Algorithm stopped with error 9.81e-04
+
+ sample size =  53, feature dimension = 200
+ positve sample =  27, negative sample =  26
+ number of iterations = 367
+ time taken = 7.95
+ error of classification (training) = 0.00 (%)
+ primfeas = 9.96e-08
+ dualfeas = 1.39e-06
+ relative gap = 3.59e-01
+[reComBat] 2026-08-30 14:24:13,292 R callback write-console: Using batch =Batch0as a reference batch (this batch won't change)
+  
+[reComBat] 2026-08-30 14:24:13,293 R callback write-console: Found3batches
+  
+[reComBat] 2026-08-30 14:24:13,293 R callback write-console: Adjusting for1covariate(s) or covariate level(s)
+  
+[reComBat] 2026-08-30 14:24:13,294 R callback write-console: Standardizing Data across genes
+  
+[reComBat] 2026-08-30 14:24:13,294 R callback write-console: Fitting L/S model and finding priors
+  
+[reComBat] 2026-08-30 14:24:13,297 R callback write-console: Finding parametric adjustments
+  
+[reComBat] 2026-08-30 14:24:13,312 R callback write-console: Adjusting the Data
+
+  
+[reComBat] 2026-08-30 14:24:14,755 R callback write-console: Loading required package: distr
+  
+[reComBat] 2026-08-30 14:24:14,757 R callback write-console: Loading required package: startupmsg
+  
+[reComBat] 2026-08-30 14:24:14,766 R callback write-console: :startupmsg>  *** Utilities for Start-Up Messages ***
+  
+[reComBat] 2026-08-30 14:24:14,766 R callback write-console: :startupmsg> 
+  
+[reComBat] 2026-08-30 14:24:14,766 R callback write-console: :startupmsg>  Version information in start-up messages is
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  currently suppressed. To see such information on
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  startup as in versions of this pkg prior to this
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  versionr, set option "StartupBanner" to a value
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  different to {"off", "no-version", "no -
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  version"}, e.g., by options("StartupBanner" =
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  "complete") or by options("StartupBanner" = NULL)
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  or by options("StartupBanner" = "something else").
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg> 
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  Detailed information about which packages are
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  currently loaded or attached at which version
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  (regardless of whether these have start-up
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  messages managed by this package) can be obtained
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg>  by "sessionInfo()".
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg> 
+  
+[reComBat] 2026-08-30 14:24:14,767 R callback write-console: :startupmsg> 
+  
+[reComBat] 2026-08-30 14:24:14,773 R callback write-console: Loading required package: sfsmisc
+  
+[reComBat] 2026-08-30 14:24:14,788 R callback write-console: 
+Attaching package: ‘sfsmisc’
+
+  
+[reComBat] 2026-08-30 14:24:14,789 R callback write-console: The following object is masked from ‘package:data.table’:
+
+    last
+
+  
+[reComBat] 2026-08-30 14:24:14,789 R callback write-console: The following object is masked from ‘package:GenomicAlignments’:
+
+    last
+
+  
+[reComBat] 2026-08-30 14:24:15,171 R callback write-console: :distr>  *** Object Oriented Implementation of Distributions ***
+  
+[reComBat] 2026-08-30 14:24:15,171 R callback write-console: :distr> 
+  
+[reComBat] 2026-08-30 14:24:15,172 R callback write-console: :distr> 
+  
+[reComBat] 2026-08-30 14:24:15,179 R callback write-console: 
+Attaching package: ‘distr’
+
+  
+[reComBat] 2026-08-30 14:24:15,179 R callback write-console: The following object is masked from ‘package:EDASeq’:
+
+    width
+
+  
+[reComBat] 2026-08-30 14:24:15,180 R callback write-console: The following objects are masked from ‘package:ShortRead’:
+
+    name, width
+
+  
+[reComBat] 2026-08-30 14:24:15,180 R callback write-console: The following object is masked from ‘package:GenomicAlignments’:
+
+    width
+
+  
+[reComBat] 2026-08-30 14:24:15,180 R callback write-console: The following objects are masked from ‘package:SummarizedExperiment’:
+
+    width, width<-
+
+  
+[reComBat] 2026-08-30 14:24:15,180 R callback write-console: The following objects are masked from ‘package:GenomicRanges’:
+
+    gaps, width, width<-
+
+  
+[reComBat] 2026-08-30 14:24:15,181 R callback write-console: The following objects are masked from ‘package:Biostrings’:
+
+    gaps, width
+
+  
+[reComBat] 2026-08-30 14:24:15,181 R callback write-console: The following object is masked from ‘package:XVector’:
+
+    width
+
+  
+[reComBat] 2026-08-30 14:24:15,181 R callback write-console: The following objects are masked from ‘package:IRanges’:
+
+    gaps, sd, width, width<-
+
+  
+[reComBat] 2026-08-30 14:24:15,181 R callback write-console: The following objects are masked from ‘package:S4Vectors’:
+
+    sd, width
+
+  
+[reComBat] 2026-08-30 14:24:15,182 R callback write-console: The following objects are masked from ‘package:BiocGenerics’:
+
+    sd, type, width, width<-
+
+  
+[reComBat] 2026-08-30 14:24:15,182 R callback write-console: The following objects are masked from ‘package:stats’:
+
+    df, qqplot, sd
+
+  
+[reComBat] 2026-08-30 14:24:15,183 R callback write-console: Loading required package: nls2
+  
+[reComBat] 2026-08-30 14:24:15,185 R callback write-console: Loading required package: proto
+  
+[reComBat] 2026-08-30 14:24:15,221 R callback write-console: Loading required package: nlmrt
+  
+[reComBat] 2026-08-30 14:24:15,297 R callback write-console: 
+Attaching package: ‘reshape2’
+
+  
+[reComBat] 2026-08-30 14:24:15,299 R callback write-console: The following objects are masked from ‘package:data.table’:
+
+    dcast, melt
+
+  
+[reComBat] 2026-08-30 14:24:19,174 R callback write-console: Loading required package: splines
+  
+[reComBat] 2026-08-30 14:24:19,281 R callback write-console: 
+Attaching package: ‘NOISeq’
+
+  
+[reComBat] 2026-08-30 14:24:19,282 R callback write-console: The following object is masked from ‘package:edgeR’:
+
+    rpkm
+
+  
+[reComBat] 2026-08-30 14:24:19,283 R callback write-console: The following object is masked from ‘package:ShortRead’:
+
+    readData
+
+  
+[reComBat] 2026-08-30 14:24:21,025 R callback write-console: Loading required package: glmnet
+  
+[reComBat] 2026-08-30 14:24:21,060 R callback write-console: Loaded glmnet 5.0
+  
+[reComBat] 2026-08-30 14:24:21,065 R callback write-console: Loading required package: lme4
+  
+[reComBat] 2026-08-30 14:24:21,234 R callback write-console: 
+Attaching package: ‘lme4’
+
+  
+[reComBat] 2026-08-30 14:24:21,234 R callback write-console: The following object is masked from ‘package:sfsmisc’:
+
+    factorize
+
+  
+[reComBat] 2026-08-30 14:24:21,234 R callback write-console: The following object is masked from ‘package:generics’:
+
+    refit
+
+  
+[reComBat] 2026-08-30 14:24:21,235 R callback write-console: The following object is masked from ‘package:nlme’:
+
+    lmList
+
+  
+[reComBat] 2026-08-30 14:24:21,235 R callback write-console: Loading required package: MASS
+  
+[reComBat] 2026-08-30 14:24:21,248 R callback write-console: 
+Attaching package: ‘MASS’
+
+  
+[reComBat] 2026-08-30 14:24:21,249 R callback write-console: The following object is masked from ‘package:genefilter’:
+
+    area
+
+  
+[reComBat] 2026-08-30 14:24:21,250 R callback write-console: Loading required package: affyPLM
+  
+[reComBat] 2026-08-30 14:24:21,252 R callback write-console: Loading required package: affy
+  
+[reComBat] 2026-08-30 14:24:21,316 R callback write-console: 
+Attaching package: ‘affy’
+
+  
+[reComBat] 2026-08-30 14:24:21,317 R callback write-console: The following object is masked from ‘package:ShortRead’:
+
+    intensity
+
+  
+[reComBat] 2026-08-30 14:24:21,318 R callback write-console: Loading required package: gcrma
+  
+[reComBat] 2026-08-30 14:24:21,402 R callback write-console: 
+Attaching package: ‘affyPLM’
+
+  
+[reComBat] 2026-08-30 14:24:21,402 R callback write-console: The following object is masked from ‘package:SingleCellExperiment’:
+
+    weights<-
+
+  
+================================================================
+ENVIRONMENT
+================================================================
+  Python        3.11.16
+  rpy2          not installed
+  R             R version 4.5.3 (2026-03-11)
+  Octave        present
+
+================================================================
+IMPUTATION  (4)
+================================================================
+  strict                 PASS  (  0.0s)
+  knn                    PASS  (  0.0s)
+  softimpute             PASS  (  0.0s)
+  missforest             PASS  (  0.0s)
+
+================================================================
+HARMONIZATION  (34)
+================================================================
+  01_raw                 PASS  (  0.0s)
+  02_median_scaling      PASS  (  0.0s)
+  07_pycombat            PASS  (  0.1s)
+  08_inmoose_combatseq   PASS  (  2.5s)
+  11_harmony             PASS  (  0.2s)
+  12_scanorama           PASS  (  0.1s)
+  13_fsmvn               PASS  (  0.0s)
+  15_fsqn_py             PASS  (  0.0s)
+  17_quantile            PASS  (  0.0s)
+  18_rank                PASS  (  0.0s)
+  25_angel               PASS  (  0.0s)
+  26_xpn                 PASS  (  0.0s)
+  30_recombat            PASS  (  0.0s)
+  03_limma               PASS  (  0.9s)
+  04_sva                 PASS  (  4.6s)
+  05_combat              PASS  (  2.0s)
+  06_combat_seq          PASS  (  1.0s)
+  09_ruv                 PASS  (  5.1s)
+  10_mnn                 PASS  (  3.2s)
+  14_qsmooth             PASS  (  1.4s)
+  22_tmm                 PASS  (  1.0s)
+  23_vst                 PASS  (  2.5s)
+  16_fsqn_r              PASS  (  0.7s)
+  19_tdm                 PASS  (  0.8s)
+  20_shambhala           FAIL  (  6.7s)  returned an all-NaN matrix
+  21_harmonizr           FAIL  (  2.1s)  returned 0 genes
+  27_dwd                 PASS  ( 20.6s)
+  28_npn                 PASS  (  0.7s)
+  29_combat_ref          PASS  (  0.7s)
+  31_ruv3prps            PASS  (  0.6s)
+  33_amdbnorm            PASS  (  4.3s)
+  34_arsyn               PASS  (  1.8s)
+  37_fabatch             PASS  (  3.8s)
+  38_harman              PASS  ( 63.0s)
+
+================================================================
+FAILURE DETAILS
+================================================================
+
+----------------------------------------------------------------
+FAILED: 20_shambhala
+----------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/selftest_cmd.py", line 161, in _run_one
+    raise ValueError("returned an all-NaN matrix")
+ValueError: returned an all-NaN matrix
+
+
+----------------------------------------------------------------
+FAILED: 21_harmonizr
+----------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/combobatch/cli/selftest_cmd.py", line 159, in _run_one
+    raise ValueError("returned 0 genes")
+ValueError: returned 0 genes
+
+
+RESULT: 36 passed, 0 skipped, 2 failed
+FAILED: 20_shambhala, 21_harmonizr
+[reComBat] 2026-08-30 14:25:28,793 Embedded R ended.
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+FAIL: selftest exited 1
+
+=====================================
+combobatch:test FAILED 1 check(s)

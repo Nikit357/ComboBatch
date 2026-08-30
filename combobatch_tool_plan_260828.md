@@ -1047,7 +1047,8 @@ Changes from the source Dockerfile, each traceable to a documented failure:
 Per-package `|| echo "WARN"` for the optional/fragile GitHub installs, with **one** consolidated
 verification step at the end that fails only on genuinely required packages.
 
-Expected image size **6–9 GB**.
+Expected image size **6–9 GB**. *(Measured 2026-08-30: **5.07 GB** — see
+`docker/remaining_selftest_failures_plan_260830.md`.)*
 
 **Registry: GHCR only.** `ghcr.io/nikit357/combobatch`, marked public. The repo already lives
 under `github.com/Nikit357`, so pushes reuse GitHub auth; a public package is anonymously
@@ -1675,7 +1676,7 @@ group is a guard rail and group M's margin carries the discriminative signal.
 - [x] `scripts/build_and_push_image.sh` — `buildx --platform linux/amd64`, **GHCR tags only**
 - [x] `tests/unit/test_docker_assets.py` — **new, not in the original checklist.** The R script is the only place a registry is restated in another language, and a drift there does not fail the build: the method simply SKIPs at run time and disappears from the benchmark. This asserts the script's `required` vector equals the registry union exactly, in both directions, and pins the Dockerfile invariants.
 - [x] `scripts/smoke_test.sh` — the "build; verify R; zero skips" gate below, as a runnable script
-- [ ] Build; verify R is 4.5.x; `selftest`; `test_methods_all_backends.py` with zero skips *(requires an hour-long amd64 build with network access — run `bash scripts/smoke_test.sh`)*
+- [ ] Build; verify R is 4.5.x; `selftest`; `test_methods_all_backends.py` with zero skips *(requires an hour-long amd64 build with network access — run `bash scripts/smoke_test.sh`, **with the FortiClient VPN disconnected**: see `docker/tls_inspection_ca_plan_260829.md`, which diagnoses the `curl: (60)` failure of the first attempt on 2026-08-29 and adds the preflight probe and the exit-code classification that replaced its misleading message; then `docker/r_package_deps_plan_260830.md`, which diagnoses the second attempt's failure 36 minutes in — `libuv1-dev` missing from the apt layer, surfacing five dependency levels away as a missing `qsmooth` — and drops the `Suggests` closure that `dependencies = TRUE` was pulling; then `docker/mid_build_network_loss_plan_260830.md`, which diagnoses the third attempt — the VPN reconnected 14 minutes in, discarding 857 s of finished compiles — and splits the R install into six self-verifying, individually cached layers so a network loss costs one stage; then `docker/recombat_install_plan_260830.md`, which diagnoses the fourth — reComBat declares the deprecated `sklearn` stub and `python <3.11`, so pip refuses it twice over — and installs it alone at a pinned commit with `--no-deps --ignore-requires-python`; then `docker/image_verification_failures_plan_260830.md`, for the first image that **built** — its gate failed 3 of 8 checks on one rpy2 invisible-result bug, and fixing that exposed `27_dwd` silently returning its input unchanged, `19_tdm`'s missing `binr`, `37_fabatch`'s mangled annotation column, and 4.5 GB of CUDA pulled in by `harmonypy` 0.2.0; finally `docker/remaining_selftest_failures_plan_260830.md`, which took the gate from 7/8 to a clean pass — HarmonizR's default `ComBat_mode` writes an empty file, and Shambhala needs several hundred genes where the fixture gave it 200)*
 - [ ] `docker login ghcr.io`; push; **flip the GHCR package to public**; verify an anonymous `docker pull` *(requires a `write:packages` token and the GitHub UI)*
 
 **Three deviations from the plan text, each forced by something the plan itself asks for.**

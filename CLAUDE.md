@@ -248,7 +248,8 @@ Specific to this repo:
   in the donors but never applied, and necessary because Spot's 2-minute SIGTERM cannot save a
   6-hour missForest job.
 - **PVC** `danya-nikitin-fl` at `/workspace` is `ReadWriteOnce` — one pod at a time.
-- Expected image size 6–9 GB (Python + R 4.5.3 + ~25 R packages + Octave).
+- Image size **5.07 GB**, measured 2026-08-30 (Python + R 4.5.3 + ~25 R packages + Octave).
+  Keep `harmonypy<0.2`: 0.2.0 depends on `torch` and took the image to 12.8 GB.
 - Verified present on the dev Mac (2026-08-29): `docker` 29.7.2, `kubectl`, `aws` CLI 2.34.33
   with valid credentials, and **Python 3.11.16** via Homebrew at `/opt/homebrew/opt/python@3.11`.
   `python3` still resolves to the system 3.9.6, so invoke `python3.11` explicitly. Unit tests
