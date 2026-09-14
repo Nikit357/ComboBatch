@@ -1,5 +1,7 @@
 # ComboBatch
 
+DOI: 10.5281/zenodo.22755758
+
 Benchmark **imputation × harmonization** combinations for bulk transcriptomics, and score
 the results with batch-effect quality metrics.
 
