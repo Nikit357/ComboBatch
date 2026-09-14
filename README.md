@@ -1,6 +1,6 @@
 # ComboBatch
 
-DOI: 10.5281/zenodo.22755758
+DOI: [10.5281/zenodo.22755758](https://zenodo.org/records/22755758)
 
 Benchmark **imputation × harmonization** combinations for bulk transcriptomics, and score
 the results with batch-effect quality metrics.
